@@ -42,11 +42,11 @@ export default async function handler(req, res) {
     //}
 
     const db = knex(process.env.DATABASE_URL)
+    console.log(process.env.MONGO_URL)
+    const mongo = new MongoClient({url : process.env.MONGO_URL});
+    const connection = await mongo.connect(process.env.MONGO_URL)
 
-    const mongo = new MongoClient(process.env.MONGO_URL);
-    await mongo.connect()
-
-    const closedEntries = await mongo.db().collection("closed").find().toArray()
+    const closedEntries = await connection.collection("closed").find().toArray()
 
     const insertPatient = {
         modified: moment(new Date()).utc().format("YYYY-MM-DD HH:mm:ss"),
@@ -152,7 +152,7 @@ export default async function handler(req, res) {
 
     await db('treatments').insert(insertTreatment)
 
-    await mongo.db().collection("patients_data").insertOne({
+    await connection.collection("patients_data").insertOne({
         patient_id: patient.id,
         phones: [{
             "category": "",
