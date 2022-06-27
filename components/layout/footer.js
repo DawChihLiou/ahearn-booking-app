@@ -20,12 +20,12 @@ export default function Footer() {
                             </li>
 
                             <li>
-                                <Link href="/content/imprint">
+                                <Link href="https://www.ahearn-chiropractic.de/impressum-0">
                                     <a>Impressum</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/content/privacy">
+                                <Link href="https://www.ahearn-chiropractic.de/datenschutz">
                                     <a>Datenschutz</a>
                                 </Link>
                             </li>
