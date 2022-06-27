@@ -5,17 +5,23 @@ import { parseISO, addHours } from 'date-fns'
 import { useRouter } from 'next/router'
 import { Row, Col, Button, Card, CardBody } from 'reactstrap'
 import { ButtonGroup } from 'react-bootstrap'
-import Link from 'next/link'
 import { BsCalendarDay } from 'react-icons/bs'
 import { FiDownload } from 'react-icons/fi'
 import ICalendarLink from "react-icalendar-link";
 
 
+Date.prototype.stdTimezoneOffset = function () {
+    var jan = new Date(this.getFullYear(), 0, 1);
+    var jul = new Date(this.getFullYear(), 6, 1);
+    return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+}
+
+Date.prototype.isDstObserved = function () {
+    return this.getTimezoneOffset() < this.stdTimezoneOffset();
+}
+
 const Step5 = () => {
-    const [appointment, setAppointment] = useContext(AppointmentContext);
-    const router = useRouter()
-
-
+    const [appointment, ] = useContext(AppointmentContext);
 
     const parsedTime = parseISO(appointment.time);
     let tzOffset = "+01:00"
