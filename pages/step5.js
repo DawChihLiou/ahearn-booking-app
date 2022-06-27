@@ -5,10 +5,10 @@ import { parseISO, addHours } from 'date-fns'
 import { useRouter } from 'next/router'
 import { Row, Col, Button, Card, CardBody } from 'reactstrap'
 import { ButtonGroup } from 'react-bootstrap'
+import Link from 'next/link'
 import { BsCalendarDay } from 'react-icons/bs'
 import { FiDownload } from 'react-icons/fi'
 import ICalendarLink from "react-icalendar-link";
-
 
 Date.prototype.stdTimezoneOffset = function () {
     var jan = new Date(this.getFullYear(), 0, 1);
@@ -20,18 +20,39 @@ Date.prototype.isDstObserved = function () {
     return this.getTimezoneOffset() < this.stdTimezoneOffset();
 }
 
-const Step5 = () => {
-    const [appointment, ] = useContext(AppointmentContext);
+const Step5 = ({ }) => {
 
+    const [appointment, setAppointment] = useContext(AppointmentContext);
+    const router = useRouter()
+
+
+    useEffect(() => {
+        if (!appointment.person) {
+            router.push("/step1")
+            return;
+        }
+
+        if (!appointment.time) {
+            router.push("/step2")
+            return;
+        }
+
+    }, [router, appointment.person, appointment.time])
+    if (!appointment.time) {
+        return <>Checking data...</>
+    }
     const parsedTime = parseISO(appointment.time);
+
     let tzOffset = "+01:00"
     const today = new Date();
+
     if (today.isDstObserved()) {
         //alert("Daylight saving time!");
         tzOffset = "+02:00"
     }
 
     const endTime = addHours(parsedTime, 1)
+
     const event = {
         title: "Ahearn Chiropractic - Erster Termin.",
         description: `Unsere Praxis liegt im Innenhof`,
