@@ -33,7 +33,7 @@ export default function Home() {
           sm={{ size: 6 }}
           md={{ size: 4, offset: 1 }}
         >
-          <Link href="https://ahearn-chiropractic.de/ac/booking/10">
+          <Link href="https://www.ahearn-chiropractic.de/user/login">
             <Card className="hover">
               <CardBody>
                 <center><BsFillPersonCheckFill style={{ fontSize: "3em", marginBottom: ".5em" }} /></center>
