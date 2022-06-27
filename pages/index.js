@@ -7,8 +7,10 @@ export default function Home() {
     <>
       <Row>
         <Col sm={{ offset: 1, size: 11 }}>
-          <h1>Hallo</h1>
-          <h4>Schön das du hier bist!</h4>
+          <h1>Guten Tag!
+
+          </h1>
+          <h4>Schön, dass Du Interesse an einem Termin bei uns hast!</h4>
           <br /><br />
         </Col>
       </Row>
@@ -51,7 +53,7 @@ export default function Home() {
                   <BiInfoCircle style={{ fontSize: "4em" }} />
                 </Col>
                 <Col sm="10">
-                  Wußtest du, dass regelmäßige chiropraktische Behandlungen dazu beitragen können, deine Lebenslust drastisch zu steigern?
+                  Wusstest Du, dass regelmäßige chiropraktische Behandlungen dazu beitragen können, nicht nur Deine Schmerzen zu minimieren, sondern auch Deine Lebensenergie drastisch zu steigern?
                 </Col>
               </Row>
             </CardBody>

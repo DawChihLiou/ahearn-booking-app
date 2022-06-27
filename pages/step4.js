@@ -1,11 +1,12 @@
 import AppointmentContext from '../context/appointmentContextProvider'
 import { useContext, useEffect } from 'react'
 import { formatInTimeZone } from '../lib/helper'
-import { parseISO } from 'date-fns'
+import { parseISO, addHours } from 'date-fns'
 import { useRouter } from 'next/router'
 import { Row, Col, Button, Card, CardBody } from 'reactstrap'
 import Form from '@rjsf/bootstrap-4';
 import ICalendarLink from "react-icalendar-link";
+import axios from 'axios';
 
 Date.prototype.stdTimezoneOffset = function () {
     var jan = new Date(this.getFullYear(), 0, 1);
@@ -21,9 +22,20 @@ const Step4 = () => {
     const [appointment, setAppointment] = useContext(AppointmentContext);
     const router = useRouter()
 
-    const book = ({ formData }) => {
+    const book = async ({ formData }) => {
         console.log(formData)
         setAppointment({ ...appointment, contact: formData })
+        try {
+            const { data } = await axios.post('/api/booking/entry', { ...appointment, contact: formData })
+            .catch((error) => {
+                throw new Error(`Fehler: ${error?.response?.data}`)
+            })
+            router.push("/step5")
+        } catch (ex) {
+            router.push("/step3")
+        }
+
+       
     }
 
     useEffect(() => {
@@ -51,34 +63,38 @@ const Step4 = () => {
         tzOffset = "+02:00"
     }
 
+    const endTime = addHours(parsedTime, 1)
     const event = {
         title: "Ahearn Chiropractic - Erster Termin.",
         description: `Unsere Praxis liegt im Innenhof`,
         startTime: formatInTimeZone(parsedTime, `yyyy-MM-dd'T'HH:mm:ss'${tzOffset}'`, "UTC"),
+        endTime: formatInTimeZone(endTime, `yyyy-MM-dd'T'HH:mm:ss'${tzOffset}'`, "UTC"),
         location: "Alexanderstr. 18, 40210 Duesseldorf",
     }
 
-    
+
 
     return <>
-        {JSON.stringify(appointment)}
+
         <Row>
-            <Col>
+            <Col sm="6">
                 <Card>
                     <CardBody>
                         <h3>Fast geschafft!</h3>
-                        <p>{appointment?.person?.vorname} wir haben deinen Termin für  {formatInTimeZone(parsedTime, "eeee 'den' dd.MM 'um' HH:mm", "UTC")} berücksichtigt.</p>
+                        <p>{appointment?.person?.vorname} wir haben Deinen Termin für
+                            <br />
+                            <strong style={{ color: '#ec6735' }}>{formatInTimeZone(parsedTime, "eeee 'den' dd.MM 'um' HH:mm 'Uhr'", "UTC")}</strong> berücksichtigt.</p>
                         <ICalendarLink event={event} >
                             Add to Calendar
                         </ICalendarLink>
                     </CardBody>
                 </Card>
             </Col>
-            <Col>
+            <Col sm="6">
                 <Card>
                     <CardBody>
-                        <h3>Noch kurz deine Kontaktdaten</h3>
-                        <p>Nein keine Sorgen, wir sind nicht solche! Wir brauchen deine Kontaktdaten nur für den Fall, dass etwas schief läuft.</p>
+                        <h3>Noch kurz Deine Kontaktdaten</h3>
+                        <p>Noch kurz Deine Kontaktdaten, die sind wichtig, falls sich kurzfristig in unserem System etwas ändern sollte.</p>
                         <Form
                             showErrorList={false}
                             autoComplete={false}
@@ -101,28 +117,20 @@ const Step4 = () => {
 
 const schema = {
     type: "object",
-    required: ["tel", "mail", "howToContact"],
+    required: ["tel", "mail"],
     properties: {
         tel: {
             title: "Telefon",
             type: 'string',
             default: "+49",
             format: 'tel',
-            description: `Versprochen, wir geben weder deine Nummer weiter, noch werden wir dich telefonisch nerven. 
-            Wir brauchen deine Telefonnummer für den Fall, wenn etwas mit deinem Termin nicht stimmt.`
+            description: `Versprochen, wir geben weder Deine Nummer weiter, noch werden wir dich telefonisch nerven.`
         },
         mail: {
             format: 'mail',
             type: "string",
             title: "E-Mail",
-            description: `Wir werden dir noch eine bestätigungs E-Mail zu kommen lassen. Damit du uns auch  ja nicht vergisst ;-).`
-        },
-        howToContact: {
-            title: "Kontakt Methode, wenn der Termin nicht stattfinden können sollte.",
-            type: "string",
-            description: "Wie dürfen wir dich über Terminänderungen Informieren, wenn etwas mit deinem Termin sein sollte?",
-            default: "sms",
-            enum: ["Telefonisch", "Per SMS", "E-Mail"]
+            description: `Wir werden Dir noch eine Bestätigungs-E-Mail zu kommen lassen. Damit Du an Deinen Termin denkst.`
         }
     }
 }

@@ -25,18 +25,24 @@ const Step2 = () => {
             <Col>
                 <Card>
                     <CardBody>
-                        <h3>Das musst du wissen!</h3>
-                        <p>Bevor du zu deiner Terminauswahl kommst, musst du folgendes Wissen:</p>
+                        <h3>Das musst Du wissen!</h3>
+                        <p>Bevor Du zu Deiner Terminauswahl kommst, musst Du folgendes Wissen:</p>
 
                         <p>
                             1. Wir sind eine Privatpraxis. Somit werden die Kosten von gesetzlichen Krankenkassen in der Regel nicht übernommen.
-                            Private Krankenkassen übernehmen hingegen im allgemeinen die Kosten der Behandlung, wir empfehlen aber dies im Vorfeld mit der Krankenkasse abzustimmen.
+                            Private Krankenkassen übernehmen hingegen im Allgemeinen die Kosten der Behandlung, wenn der Heilpraktiker mit zu den 
+                            Versicherungsleistungen gehört -
+                            wir empfehlen dies im Vorfeld mit der Krankenkasse abzustimmen.
 
                         </p>
                         <p>
-                            2. Die kosten belaufen sich auf 144€ für Ihre erste Untersuchung. Einzelne chiropraktische Behandlungen außerhalb von Behandlungspaketen liegen bei je 45€. <br/>
-                            Eine Übersicht unserer aktuellen Behandlungspaketen finden sie in 
-                            {" "}<a href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf" target="_blank">unserer Preisliste.</a>
+                            2. Die Gesamtkosten belaufen sich auf 144€ für die Erstaufnahme in unserer Praxis. 
+                            Das beinhaltet deine Anamnese, eine Haltungsanalyse, auf Deine Haltung abgestimmte Übungen,
+                            der MyoVision Scan, Deine erste Chiropraktische Behandlung und einen Zweitermin, bei dem Du alle Ergebnisse
+                            mit Deinem Gesundheitsberater:in besprichst.<br/>
+                            Jede weitere chiropraktische Behandlungen außerhalb von Behandlungspakete (diese sind deutlich günstiger) liegt bei 45€. <br/>
+                            Eine Übersicht unserer aktuellen Behandlungspakete findest Du in 
+                            {" "}<a href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf" target="_blank"  rel="noreferrer">unserer Preisliste.</a>
                         </p>
                         <p></p>
                         <Form
@@ -58,16 +64,11 @@ const Step2 = () => {
 
 const schema = {
     type: "object",
-    required: ["privatPraxis", "kosten"],
+    required: ["acceptedAgreement"],
     properties: {
-        privatPraxis: {
-            title: "Ja ich bin mir bewußt, dass ich die Kosten für die Behandlung höchst wahrscheinlich selber tragen muss. (Private Krankenkassen zahlen in der Regel die Behandlung)",
+        acceptedAgreement: {
+            title: "Ja, dies habe ich verstanden",
             type: 'boolean',
-            description: ``
-        },
-        kosten: {
-            type: "boolean",
-            title: "Mir ist bewußt, dass die Kosten für die erste Behandlung sich auf 144€ belaufen. (Analyse, Wirbelsäulen Scan, Körpervermessung und Chiropraktische Behandlung)",
             description: ``
         }
     }

@@ -28,7 +28,7 @@ export default function Header(props) {
                         <Image src="/logo.webp" alt="Beta Dach Logo" width={104} height={179} />
                     </>
                 </Link>
-                <div style={{color: "orange", display: "inline-block", margin: "0px 0px 0px 10px" }}>
+                <div style={{color: "#ec6735", display: "inline-block", margin: "0px 0px 0px 10px" }}>
                    Ahearn Chiropractic
                 </div>
             </>
@@ -59,7 +59,7 @@ export default function Header(props) {
 
                     </Nav>
                     <NavbarText>
-                        Und wann können wir Ihnen helfen?
+                        Und wann können wir Dir helfen?
                     </NavbarText>
 
                 </Collapse>

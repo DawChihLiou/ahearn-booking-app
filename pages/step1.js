@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { ImPencil2 } from 'react-icons/im'
 import Form from '@rjsf/bootstrap-4';
-import  { useContext } from "react";
+import { useContext } from "react";
 import AppointmentContext from '../context/appointmentContextProvider'
 import { useRouter } from 'next/router'
 
@@ -13,12 +13,12 @@ export default function Step1() {
     const router = useRouter()
 
     const updateConfig = async ({ formData }) => {
-        setAppointment({person: formData})
+        setAppointment({...appointment, person: formData })
         console.log(formData)
         router.push("/step2")
     }
 
-    const formData = {...appointment?.person}
+    const formData = { ...appointment?.person }
 
 
     const log = (type) => {
@@ -31,16 +31,14 @@ export default function Step1() {
                 <Col sm={{ size: 5, order: 1 }} xs={{ order: 2 }} >
                     <center><RiKakaoTalkFill style={{ fontSize: "5em", marginBottom: "20px" }} /></center>
                     <h3>Guten Tag!</h3>
-                    <p>Schön das du Interesse an einem Termin bei uns hast!
-                        <br />
-                        Würdest du uns deinen Vor und Nachnamen verraten?</p>
-                    <p>
-                        Wußtest du schon, dass sich unsere Praxis zentral in Düsseldorf befindet?<br />
-                        
 
-                    </p>
-                    <p>Im Anschluss noch was erleben? Kein Problem die Kö ist Fußläufig nur 2 Min entfernt.</p>
-                    <p><strong>Parken?</strong> Klar! bei uns kannst du kostenlos auf einem unserer 12 Parkplätz dein Auto während der Behandlung abstellen.</p>
+                    <p>Schön das Du Interesse an einem Termin bei uns hast!<br/>
+                    Würdest Du uns Deinen Vor- und Nachnamen verraten?</p>
+
+                    <p>Wusstest Du schon, dass sich unsere Praxis zentral im Herzen Düsseldorfs befindet und nur etwa 2 Min fußläufig von der Kö entfernt ist?</p>
+
+                    <p><strong>Parken?</strong> Klar! Bei uns kannst Du kostenlos auf einem unserer 12 Parkplätzen Dein Auto während der Behandlungszeit abstellen.</p>
+
                 </Col>
                 <Col sm={{ size: 7, order: 2 }} xs={{ order: 1 }} style={{ borderLeft: "1px solid black" }} >
 

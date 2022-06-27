@@ -8,6 +8,7 @@ import axios from 'axios'
 import AppointmentContext from '../context/appointmentContextProvider'
 import { useRouter } from 'next/router'
 import { formatInTimeZone } from '../lib/helper'
+import { BsCalendarPlus , BsCalendarMinus} from 'react-icons/bs'
 
 const Booking = (props) => {
     const [appointment] = useContext(AppointmentContext);
@@ -50,7 +51,7 @@ const Booking = (props) => {
     return <>
         <Row>
             <Col>
-                <h1>Ok {appointment?.person?.vorname}, wann dürfen wir dich bei uns begrüßen?</h1>
+                <h1>Ok {appointment?.person?.vorname}, wann dürfen wir Dich bei uns begrüßen?</h1>
             </Col>
 
 
@@ -58,8 +59,8 @@ const Booking = (props) => {
 
         <Row>
             <Col>
-                {!isPast(addDays(startDate[0], -1)) && <Button onClick={lastWeek}>Zurück</Button>}
-                <Button onClick={nextWeek}>Vor</Button>
+                {!isPast(addDays(startDate[0], -1)) && <Button color="primary" onClick={lastWeek}><BsCalendarMinus /> Zurück</Button>}
+                <Button color="primary" onClick={nextWeek}><BsCalendarPlus /> Vor</Button>
 
             </Col>
 
@@ -103,10 +104,10 @@ const ListFreeSlots = ({ slots, type = 20 }) => {
             ids = gbs.map(g => g.employee_id)
 
             // Prüfung auf 45min
-            if (ids.length > 0 && slots[i + 2]) {
+            if (ids.length > 0 && slots[i + 1]) {
                 console.log(i + 2)
                 // Prüfung auf 45min
-                gbs = slots[i + 2].employee_settings.filter(e => e.eType === type && !e.blocked && !e.closed && !e.stats && ids.includes(e.employee_id))
+                gbs = slots[i + 1].employee_settings.filter(e => e.eType === type && !e.blocked && !e.closed && !e.stats && ids.includes(e.employee_id))
                 ids = gbs.map(g => g.employee_id)
 
                 if (ids.length > 0) {

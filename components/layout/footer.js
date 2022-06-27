@@ -18,11 +18,7 @@ export default function Footer() {
                                     <a>Home</a>
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/content/tutorial">
-                                    <a>Anleitung</a>
-                                </Link>
-                            </li>
+
                             <li>
                                 <Link href="/content/imprint">
                                     <a>Impressum</a>
