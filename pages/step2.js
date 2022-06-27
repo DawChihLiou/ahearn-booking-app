@@ -37,7 +37,7 @@ const Step2 = () => {
                         </p>
                         <p>
                             2. Die Gesamtkosten belaufen sich auf 144€ für die Erstaufnahme in unserer Praxis. 
-                            Das beinhaltet deine Anamnese, eine Haltungsanalyse, auf Deine Haltung abgestimmte Übungen,
+                            Das beinhaltet eine Anamnese, eine Haltungsanalyse, auf Deine Haltung abgestimmte Übungen,
                             der MyoVision Scan, Deine erste Chiropraktische Behandlung und einen Zweitermin, bei dem Du alle Ergebnisse
                             mit Deinem Gesundheitsberater:in besprichst.<br/>
                             Jede weitere chiropraktische Behandlungen außerhalb von Behandlungspakete (diese sind deutlich günstiger) liegt bei 45€. <br/>
