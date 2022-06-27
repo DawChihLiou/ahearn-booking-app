@@ -104,14 +104,14 @@ const ListFreeSlots = ({ slots, type = 20 }) => {
             ids = gbs.map(g => g.employee_id)
 
             // Prüfung auf 45min
-            if (ids.length > 0 && slots[i + 1]) {
+            if (ids.length > 0 && slots[i + 2]) {
                 console.log(i + 2)
                 // Prüfung auf 45min
-                gbs = slots[i + 1].employee_settings.filter(e => e.eType === type && !e.blocked && !e.closed && !e.stats && ids.includes(e.employee_id))
+                gbs = slots[i + 2].employee_settings.filter(e => e.eType === type && !e.blocked && !e.closed && !e.stats && ids.includes(e.employee_id))
                 ids = gbs.map(g => g.employee_id)
 
                 if (ids.length > 0) {
-                    console.log(slots[i], slots[i + 1], slots[i + 2])
+                   //console.log(slots[i], slots[i + 1], slots[i + 2])
                     const parsedTime = parseISO(slots[i].time);
                     const formattedTime = formatInTimeZone(parsedTime, "HH:mm", "UTC");
                     freeSlotsForNew.push(<Button onClick={() => chooseAppointment({ time: slots[i].time, employee_id: ids[0] })}>{formattedTime}</Button>)
