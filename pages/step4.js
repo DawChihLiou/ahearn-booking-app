@@ -84,9 +84,7 @@ const Step4 = () => {
                         <p>{appointment?.person?.vorname} wir haben Deinen Termin für
                             <br />
                             <strong style={{ color: '#ec6735' }}>{formatInTimeZone(parsedTime, "eeee 'den' dd.MM 'um' HH:mm 'Uhr'", "UTC")}</strong> berücksichtigt.</p>
-                        <ICalendarLink event={event} >
-                            Add to Calendar
-                        </ICalendarLink>
+                       
                     </CardBody>
                 </Card>
             </Col>

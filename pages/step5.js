@@ -76,7 +76,8 @@ const Step5 = ({ }) => {
                             Für Deinen ersten Besuch bei uns benötigen wir den von Dir ausgefüllten Fragebogen.<br />
                             Wenn Du keinen Drucker hast, um den Fragebogen vorab auszufüllen, komme bitte
                             <span style={{ color: '#ec6735', fontWeight: 'bold' }}> 15 Minuten vor {" "}Deinem Termin</span> zu uns in die Praxis.
-                            Hier kannst Du Deinen Fragebogen in Ruhe ausfüllen.
+                            Hier kannst Du Deinen Fragebogen in Ruhe ausfüllen.<br/>
+                            Wenn vorhanden, bringe bitte MRTs, Röntgenbilder, Vorbefunde und Diagnosen mit.
 
                         </p>
 

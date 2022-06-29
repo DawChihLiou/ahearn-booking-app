@@ -43,7 +43,7 @@ export default async function handler(req, res) {
 
     const db = knex(process.env.DATABASE_URL)
     console.log(process.env.MONGO_URL)
-    const mongo = new MongoClient({url : process.env.MONGO_URL});
+    const mongo = new MongoClient({ url: process.env.MONGO_URL });
     const connection = await mongo.connect(process.env.MONGO_URL)
 
     const closedEntries = await connection.collection("closed").find().toArray()
@@ -175,19 +175,31 @@ export default async function handler(req, res) {
         <Email title={"Deine Terminbuchung bei Ahearn Chiropractic"}>
             <Item align="left">&nbsp;</Item>
             <Item align="center">
-                <Span fontSize={30}>
-                    Dein Termin: {moment(time).utc().format("DD.MM.YYYY")} um {moment(time).utc().format("HH:mm")} Uhr
-                </Span>
+                <Image src="https://www.ahearn-chiropractic.de/images/branding-logo.jpg" width="104" height="179" alt="Logo" />
+                <br/>
             </Item>
+            
             <Item align="left">&nbsp;</Item>
-            <Item align="center">
-                <Span >
-                    Hallo {patient.first_name},
-                    dein Termin findet am {moment(time).utc().format("DD.MM.YYYY")} um {moment(time).utc().format("HH:mm")} Uhr
-                    bei uns in der Praxis auf der Alexanderstr. 18 in 40210 Düsseldorf statt.
-                    Solltest du den Fragebogen nicht ausgedruckt mitbringen können, dann sei bitte 15 Minuten vor den Termin in der Praxis.
-                    Viele Grüße, dein Ahearn Chiropractic Team.
+            <Item align="left">
+
+                <Span fontWeight={'bold'} fontSize={20} color='#ec6735'>Hallo {patient.first_name},</Span><br /><br/>
+                <Span fontSize="14" >
+                    Dein Termin findet am <Span fontWeight={'bold'} color='#ec6735'>{moment(time).utc().format("DD.MM.YYYY")}</Span>
+                    {" "}um <Span fontWeight={'bold'} color='#ec6735'>{moment(time).utc().format("HH:mm")} Uhr<br/></Span>
+                    bei uns in der Praxis auf der <br />
+                    <Span fontWeight={'bold'} color='#ec6735'>Alexanderstr. 18 in 40210 Düsseldorf</Span> statt.
+                    <br /><br/>
+                    Solltest Du den Fragebogen nicht ausgedruckt mitbringen können, dann sei bitte 15 Minuten vor Deinem Termin bei uns in der Praxis.
+                    <br /><br/>
+                    Bitte denke, wenn vorhanden an Deine MRTs, Röntgenbilder, Vorbefunde und Diagnosen.
+                    <br/><br/>
+                    Viele Grüße, Dein  <Span fontWeight={'bold'} color='#ec6735'>ahearn-chiropractic</Span> Team.
                 </Span>
+
+            </Item>
+            <Item align="left" fontSize="14">
+                <br/><br/>
+                <A href="https://www.ahearn-chiropractic.de/sites/default/files/fragebogen.pdf">Fragebogen herunterladen</A>
             </Item>
 
         </Email>
