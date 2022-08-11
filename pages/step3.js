@@ -153,7 +153,7 @@ const ShowDates = ({ dates, allSlots }) => {
 }
 
 
-const getDateTowShow = ({ startDate, killDays = [0, 6] }) => {
+const getDateTowShow = ({ startDate, killDays = [0] }) => {
 
     while (killDays.includes(startDate.getDay())) {
         startDate = addDays(startDate, 1)
