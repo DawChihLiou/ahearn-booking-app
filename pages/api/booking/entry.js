@@ -21,7 +21,8 @@ export default async function handler(req, res) {
         person: {
             gender,
             vorname,
-            nachname
+            nachname,
+            dob
         },
         contact: {
             tel,
@@ -59,7 +60,7 @@ export default async function handler(req, res) {
         password: uuid.v4(),
         gender,
         app_created: 1,
-        dob: "1860-01-01"
+        dob: dob
     }
 
 

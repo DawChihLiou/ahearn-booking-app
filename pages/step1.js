@@ -85,6 +85,12 @@ const schema = {
         nachname: {
             type: "string",
             title: "Nachname"
+        },
+        dob: {
+            type: "string",
+            title: "Geburtsdatum",
+            format: "date"
+            
         }
     }
 }
