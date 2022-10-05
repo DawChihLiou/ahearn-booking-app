@@ -2,7 +2,16 @@ import { Card, CardBody, Row, Col } from 'reactstrap'
 import Link from 'next/link'
 import { BsFillPersonCheckFill, BsFillPersonPlusFill } from 'react-icons/bs'
 import { BiInfoCircle } from 'react-icons/bi'
+import { MdSportsHandball } from 'react-icons/md'
+
 export default function Home() {
+  
+  const attributes = {
+    style : {
+      minHeight: "310px",
+    }
+  }
+
   return (
     <>
       <Row>
@@ -16,25 +25,42 @@ export default function Home() {
       </Row>
       <Row>
         <Col
-          sm={{ size: 6 }}
-          md={{ size: 4, offset: 1 }}
+          sm={{ size: 10, offset: 1 }}
+          md={{ size: 4, offset: 0 }}
+          lg={{size: 3, offset: 1}}
         >
-          <Link href="/step1">
-            <Card className="hover">
+          <Link href="/step1?dest=dus">
+            <Card className="hover"  {...attributes}>
               <CardBody>
                 <center><BsFillPersonPlusFill style={{ fontSize: "3em", marginBottom: ".5em" }} /></center>
-                <h3>New Patient</h3>
-                <p>Ich bin ein neuer Patient</p>
+                <h3>New Patient Düsseldorf</h3>
+                <p>Ich bin ein neuer Patient und möchte in Düsseldorf meinen ersten Termin zur klassischen Behandlung vereinbaren</p>
               </CardBody>
             </Card>
           </Link>
         </Col>
         <Col
-          sm={{ size: 6 }}
-          md={{ size: 4, offset: 1 }}
+          sm={{ size: 10, offset: 1 }}
+          md={{ size: 4, offset: 0 }}
+          lg={{size: 3, offset: 0}}
+        >
+          <Link href="/step1?dest=erkrath">
+            <Card className="hover"  {...attributes}>
+              <CardBody>
+                <center><MdSportsHandball style={{ fontSize: "3em", marginBottom: ".5em" }} /></center>
+                <h3>New Patient Erkrath</h3>
+                <p>Ich bin ein neuer Patient und möchte meinen ersten Termin in Erkrath buchen, um eine für Sportler optimierte Behandlung zu buchen.</p>
+              </CardBody>
+            </Card>
+          </Link>
+        </Col>
+        <Col
+          sm={{ size: 10, offset: 1 }}
+          md={{ size: 4, offset: 0 }}
+          lg={{size: 3, offset: 0}}
         >
           <Link href="https://www.ahearn-chiropractic.de/user/login">
-            <Card className="hover">
+            <Card className="hover"  {...attributes}>
               <CardBody>
                 <center><BsFillPersonCheckFill style={{ fontSize: "3em", marginBottom: ".5em" }} /></center>
                 <h3>Praxismitglied</h3>

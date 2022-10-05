@@ -27,8 +27,10 @@ export default async function handler(req, res) {
         contact: {
             tel,
             mail
-        }
+        },
+        eType
     } = body
+    console.log(eType)
     // if (!res.socket.server.io) {
     const io = new Server(res.socket.server)
 
@@ -141,11 +143,11 @@ export default async function handler(req, res) {
         user_id: patient.id,
         employee_id: employee_id,
         patient_id: patient.id,
-        treatment_type: 'New',
+        treatment_type: eType === 30 ? "New T2"  : "New",
         treatment_status: 'Geblockt',
         time: moment(time).utc().format("YYYY-MM-DD HH:mm"),
         slot: availableSlots[0],
-        duration: 45,
+        duration: eType === 30 ? 40 : 45,
         is_created_by_patient: 1,
         ha: 1,
         comment: '#app'
@@ -179,7 +181,7 @@ export default async function handler(req, res) {
                 <Image src="https://www.ahearn-chiropractic.de/images/branding-logo.jpg" width="104" height="179" alt="Logo" />
                 <br/>
             </Item>
-            
+            {eType != 30 && <>
             <Item align="left">&nbsp;</Item>
             <Item align="left">
 
@@ -202,6 +204,28 @@ export default async function handler(req, res) {
                 <br/><br/>
                 <A href="https://www.ahearn-chiropractic.de/sites/default/files/fragebogen.pdf">Fragebogen herunterladen</A>
             </Item>
+            </>}
+
+            {eType === 30 && <>
+            <Item align="left">&nbsp;</Item>
+            <Item align="left">
+
+                <Span fontWeight={'bold'} fontSize={20} color='#ec6735'>Hallo {patient.first_name},</Span><br /><br/>
+                <Span fontSize="14" >
+                    Dein Termin findet am <Span fontWeight={'bold'} color='#ec6735'>{moment(time).utc().format("DD.MM.YYYY")}</Span>
+                    {" "}um <Span fontWeight={'bold'} color='#ec6735'>{moment(time).utc().format("HH:mm")} Uhr<br/></Span>
+                    bei uns in der Praxis auf der <br />
+                    <Span fontWeight={'bold'} color='#ec6735'>Max-Planck-Str. 11, 40699 Erkrath</Span> statt.
+                    <br /><br/>
+                    Bitte denke, wenn vorhanden an Deine MRTs, Röntgenbilder, Vorbefunde und Diagnosen.
+                    <br/><br/>
+                    Viele Grüße, Dein  <Span fontWeight={'bold'} color='#ec6735'>ahearn-chiropractic</Span> Team.
+                </Span>
+
+            </Item>
+            
+            </>}
+
 
         </Email>
     )
@@ -218,12 +242,18 @@ export default async function handler(req, res) {
                     Charset: "UTF-8",
                     Data: emailHTML
                 },
-                Text: {
+                Text: eType != 30 ?{
                     Charset: "UTF-8",
                     Data: `Hallo ${patient.first_name}, 
                     dein Termin findet am ${moment(time).utc().format("DD.MM.YYYY")} um ${moment(time).utc().format("HH:mm")} Uhr
                     bei uns in der Praxis auf der Alexanderstr. 18 in 40210 Düsseldorf statt.
                     Solltest du den Fragebogen nicht ausgedruckt mitbringen können, dann sei bitte 15 Minuten vor den Termin in der Praxis.
+                    Viele Grüße, dein Ahearn Chiropractic Team.
+                    `
+                } : {
+                    Data: `Hallo ${patient.first_name}, 
+                    dein Termin findet am ${moment(time).utc().format("DD.MM.YYYY")} um ${moment(time).utc().format("HH:mm")} Uhr
+                    bei uns in der Praxis auf der Max-Planck-Str. 11 in 40699 Erkrath statt.
                     Viele Grüße, dein Ahearn Chiropractic Team.
                     `
                 }

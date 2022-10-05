@@ -35,12 +35,12 @@ const Booking = (props) => {
     useEffect(() => {
 
         setLoading(true)
-        const promises = startDate.map(d => axios.get(`/api/booking/${format(d, 'yyyy-MM-dd')}`))
+        const promises = startDate.map(d => axios.get(`/api/booking/${format(d, 'yyyy-MM-dd')}?dest=${appointment.dest}`))
         Promise.all(promises).then((results) => {
             setLoading(false)
             setSlots(results.map(d => d.data[0]))
         })
-    }, [startDate])
+    }, [startDate, appointment.dest])
 
     if (loading) {
         return <>Loading</>
@@ -134,14 +134,15 @@ const ListFreeSlots = ({ slots, type = 20 }) => {
 }
 
 const ShowDates = ({ dates, allSlots }) => {
-
+    const [appointment, setAppointment] = useContext(AppointmentContext);
+    console.log("Type" , appointment.eType)
     const cols = dates.map(d => {
 
         const slots = allSlots.find(s => isSameDay(new Date(s.times[0].time), d))
         return <div key={d.getTime()} style={{ width: `${100 / dates.length}%` }}>
             <strong>{format(d, "eee dd.MM", { locale: de })}</strong>
             {slots.times &&
-                <ListFreeSlots slots={slots.times} />
+                <ListFreeSlots slots={slots.times} type={appointment.eType}/>
             }
             {!slots.times && <>Keine Daten erhalten</>}
         </div>

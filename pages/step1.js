@@ -7,13 +7,22 @@ import { useContext } from "react";
 import AppointmentContext from '../context/appointmentContextProvider'
 import { useRouter } from 'next/router'
 
-export default function Step1() {
+export default function Step1(props) {
 
     const [appointment, setAppointment] = useContext(AppointmentContext);
     const router = useRouter()
 
+    let dest = router.query.dest || "dus"
+
     const updateConfig = async ({ formData }) => {
-        setAppointment({...appointment, person: formData })
+        let eType = 20
+        switch (dest) {
+            case 'erkrath':
+                eType = 30
+                break
+
+        }
+        setAppointment({ ...appointment, person: formData, dest, eType })
         console.log(formData)
         router.push("/step2")
     }
@@ -32,12 +41,19 @@ export default function Step1() {
                     <center><RiKakaoTalkFill style={{ fontSize: "5em", marginBottom: "20px" }} /></center>
                     <h3>Guten Tag!</h3>
 
-                    <p>Schön, dass Du Interesse an einem Termin bei uns hast!<br/>
-                    Würdest Du uns Deinen Vor- und Nachnamen verraten?</p>
+                    <p>Schön, dass Du Interesse an einem Termin bei uns hast!<br />
+                        Würdest Du uns Deinen Vor- und Nachnamen verraten?</p>
 
-                    <p>Wusstest Du schon, dass sich unsere Praxis zentral im Herzen Düsseldorfs befindet und nur etwa 2 Minuten fußläufig von der Kö entfernt ist?</p>
 
-                    <p><strong>Parken?</strong> Klar! Bei uns kannst Du kostenlos auf einem unserer 12 Parkplätze Dein Auto während der Behandlungszeit abstellen.</p>
+                    {dest === "dus" && <>
+                        <p>Wusstest Du schon, dass sich unsere Praxis zentral im Herzen Düsseldorfs befindet und nur etwa 2 Minuten fußläufig von der Kö entfernt ist?</p>
+
+                        <p><strong>Parken?</strong> Klar! Bei uns kannst Du kostenlos auf einem unserer 12 Parkplätze Dein Auto während der Behandlungszeit abstellen.</p>
+                    </>}
+
+                    {dest === "erkrath" && <>
+                        <p> Unser Chiropraktisches Angebot in Erkrath zielt insbesondere auf Leistungssportler ab.</p>
+                    </>}
 
                 </Col>
                 <Col sm={{ size: 7, order: 2 }} xs={{ order: 1 }} style={{ borderLeft: "1px solid black" }} >
@@ -90,7 +106,7 @@ const schema = {
             type: "string",
             title: "Geburtsdatum",
             format: "date"
-            
+
         }
     }
 }

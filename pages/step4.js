@@ -72,6 +72,10 @@ const Step4 = () => {
         location: "Alexanderstr. 18, 40210 Duesseldorf",
     }
 
+    if(appointment.dest == "erkrath"){
+        event.location = "Max-Planck-Straße 11, 40699 Erkrath"
+    }
+
 
 
     return <>

@@ -53,12 +53,17 @@ const Step5 = ({ }) => {
 
     const endTime = addHours(parsedTime, 1)
 
-    const event = {
+    let event = {
         title: "Ahearn Chiropractic - Erster Termin.",
         description: `Unsere Praxis liegt im Innenhof`,
         startTime: formatInTimeZone(parsedTime, `yyyy-MM-dd'T'HH:mm:ss'${tzOffset}'`, "UTC"),
         endTime: formatInTimeZone(endTime, `yyyy-MM-dd'T'HH:mm:ss'${tzOffset}'`, "UTC"),
         location: "Alexanderstr. 18, 40210 Duesseldorf",
+    }
+
+    if (appointment.dest == "erkrath") {
+        event.location = "Max-Planck-Straße 11 in 40699 Erkrath"
+        event.description = "Der Behandlungsraum befindet sich im Gebäude von T2"
     }
 
 
@@ -70,24 +75,26 @@ const Step5 = ({ }) => {
                         <h3>Vielen Dank für Deine Buchung!</h3>
                         <h5 style={{ color: '#ec6735' }}><strong>{appointment?.person?.vorname}</strong>,
                             wir freuen uns Dich schon bald in unserer Praxis begrüßen zu dürfen!</h5>
+                        {appointment.dest != "erkrath" &&
+                            <p style={{ marginTop: '30px' }}>
+                                <h6>Wichtig! <br />Bitte Fragebogen herunterladen und ausgefüllt mitbringen!</h6>
+                                Für Deinen ersten Besuch bei uns benötigen wir den von Dir ausgefüllten Fragebogen.<br />
+                                Wenn Du keinen Drucker hast, um den Fragebogen vorab auszufüllen, komme bitte
+                                <span style={{ color: '#ec6735', fontWeight: 'bold' }}> 15 Minuten vor {" "}Deinem Termin</span> zu uns in die Praxis.
+                                Hier kannst Du Deinen Fragebogen in Ruhe ausfüllen.<br />
+                                Wenn vorhanden, bringe bitte MRTs, Röntgenbilder, Vorbefunde und Diagnosen mit.
 
-                        <p style={{ marginTop: '30px' }}>
-                            <h6>Wichtig! <br />Bitte Fragebogen herunterladen und ausgefüllt mitbringen!</h6>
-                            Für Deinen ersten Besuch bei uns benötigen wir den von Dir ausgefüllten Fragebogen.<br />
-                            Wenn Du keinen Drucker hast, um den Fragebogen vorab auszufüllen, komme bitte
-                            <span style={{ color: '#ec6735', fontWeight: 'bold' }}> 15 Minuten vor {" "}Deinem Termin</span> zu uns in die Praxis.
-                            Hier kannst Du Deinen Fragebogen in Ruhe ausfüllen.<br/>
-                            Wenn vorhanden, bringe bitte MRTs, Röntgenbilder, Vorbefunde und Diagnosen mit.
-
-                        </p>
+                            </p>
+                        }
 
                         <p style={{ marginTop: "30px" }}>
                             <ButtonGroup>
                                 <ICalendarLink event={event} >
                                     <Button color="primary" style={{ marginRight: "20px" }}><BsCalendarDay /> Termin im Kalender eintragen</Button>
                                 </ICalendarLink>
-
-                                <Button color="primary" href="https://www.ahearn-chiropractic.de/sites/default/files/fragebogen.pdf"><FiDownload /> Download Fragebogen</Button>
+                                {appointment.dest != "erkrath" &&
+                                    <Button color="primary" href="https://www.ahearn-chiropractic.de/sites/default/files/fragebogen.pdf"><FiDownload /> Download Fragebogen</Button>
+                                }
                             </ButtonGroup>
                         </p>
 
