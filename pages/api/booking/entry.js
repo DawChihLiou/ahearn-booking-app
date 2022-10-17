@@ -248,13 +248,14 @@ export default async function handler(req, res) {
                     dein Termin findet am ${moment(time).utc().format("DD.MM.YYYY")} um ${moment(time).utc().format("HH:mm")} Uhr
                     bei uns in der Praxis auf der Alexanderstr. 18 in 40210 Düsseldorf statt.
                     Solltest du den Fragebogen nicht ausgedruckt mitbringen können, dann sei bitte 15 Minuten vor den Termin in der Praxis.
-                    Viele Grüße, dein Ahearn Chiropractic Team.
+                    Viele Grüße, Dein Ahearn Chiropractic Team.
                     `
                 } : {
                     Data: `Hallo ${patient.first_name}, 
-                    dein Termin findet am ${moment(time).utc().format("DD.MM.YYYY")} um ${moment(time).utc().format("HH:mm")} Uhr
-                    bei uns in der Praxis auf der Max-Planck-Str. 11 in 40699 Erkrath statt.
-                    Viele Grüße, dein Ahearn Chiropractic Team.
+                    wir freuen uns, Dich bald in unserer Praxis begrüßen zu dürfen. 
+                    Dein Termin findet am ${moment(time).utc().format("DD.MM.YYYY")} um ${moment(time).utc().format("HH:mm")} Uhr
+                    bei uns in den Räumen der Praxis T2 (Cathrin Junker - Phyisiotherapie) auf der Max-Planck-Str. 11 in 40699 Erkrath statt.
+                    Viele Grüße, Dein Ahearn Chiropractic Team.
                     `
                 }
             },

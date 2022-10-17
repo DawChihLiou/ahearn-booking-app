@@ -52,7 +52,7 @@ export default function Step1(props) {
                     </>}
 
                     {dest === "erkrath" && <>
-                        <p> Unser Chiropraktisches Angebot in Erkrath zielt insbesondere auf Leistungssportler ab.</p>
+                        <p> Unser Chiropraktisches Angebot in Erkrath zielt insbesondere auf Leistungssportler / Sportler ab.</p>
                     </>}
 
                 </Col>

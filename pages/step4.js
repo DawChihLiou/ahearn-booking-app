@@ -85,9 +85,9 @@ const Step4 = () => {
                 <Card>
                     <CardBody>
                         <h3>Fast geschafft!</h3>
-                        <p>{appointment?.person?.vorname} wir haben Deinen Termin für
+                        <p>{appointment?.person?.vorname} wir haben Deinen Termin am
                             <br />
-                            <strong style={{ color: '#ec6735' }}>{formatInTimeZone(parsedTime, "eeee 'den' dd.MM 'um' HH:mm 'Uhr'", "UTC")}</strong> berücksichtigt.</p>
+                            <strong style={{ color: '#ec6735' }}>{formatInTimeZone(parsedTime, "eeee ', den' dd.MM.yyyy 'um' HH:mm 'Uhr'", "UTC")}</strong> reserviert.</p>
                        
                     </CardBody>
                 </Card>
@@ -96,7 +96,7 @@ const Step4 = () => {
                 <Card>
                     <CardBody>
                         <h3>Noch kurz Deine Kontaktdaten</h3>
-                        <p>Noch kurz Deine Kontaktdaten, die sind wichtig, falls sich kurzfristig in unserem System etwas ändern sollte.</p>
+                        <p>diese sind wichtig, falls sich kurzfristig in unserem System etwas ändern sollte.</p>
                         <Form
                             showErrorList={false}
                             autoComplete={false}
@@ -126,7 +126,7 @@ const schema = {
             type: 'string',
             default: "+49",
             format: 'tel',
-            description: `Versprochen, wir geben weder Deine Nummer weiter, noch werden wir dich telefonisch nerven.`
+            description: `Versprochen, wir geben Deine Nummer nicht weiter. Wir werden Dich aber 24 Stunden vor Terminbeginn per SMS erinnern.`
         },
         mail: {
             format: 'mail',

@@ -34,7 +34,7 @@ export default function Home() {
               <CardBody>
                 <center><BsFillPersonPlusFill style={{ fontSize: "3em", marginBottom: ".5em" }} /></center>
                 <h3>New Patient Düsseldorf</h3>
-                <p>Ich bin ein neuer Patient und möchte in Düsseldorf meinen ersten Termin zur klassischen Behandlung vereinbaren</p>
+                <p>Ich bin ein neuer Patient und möchte in Düsseldorf meinen ersten Termin für eine klassische Behandlung vereinbaren.</p>
               </CardBody>
             </Card>
           </Link>
@@ -49,7 +49,7 @@ export default function Home() {
               <CardBody>
                 <center><MdSportsHandball style={{ fontSize: "3em", marginBottom: ".5em" }} /></center>
                 <h3>New Patient Erkrath</h3>
-                <p>Ich bin ein neuer Patient und möchte meinen ersten Termin in Erkrath buchen, um eine für Sportler optimierte Behandlung zu buchen.</p>
+                <p>Ich bin ein neuer Patient und möchte in Erkrath meinen ersten Termin für eine sportler-optmierte Behandlung buchen.</p>
               </CardBody>
             </Card>
           </Link>
