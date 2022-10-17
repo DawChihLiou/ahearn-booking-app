@@ -62,7 +62,7 @@ export default async function handler(req, res) {
         password: uuid.v4(),
         gender,
         app_created: 1,
-        dob: dob
+        dob: moment(dob).utc().format("YYYY-MM-DD")
     }
 
 
