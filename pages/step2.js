@@ -35,13 +35,14 @@ const Step2 = () => {
 
                             </p>
                             <p>
-                                2. Die Gesamtkosten belaufen sich auf 144,-€ für die Erstaufnahme in unserer Praxis.
-                                Das beinhaltet eine Anamnese, eine Haltungsanalyse, auf Deine Haltung abgestimmte Übungen,
-                                unseren MyoVision Scan, Deine erste Chiropraktische Behandlung und einen Zweitermin, bei dem Du alle Ergebnisse
-                                mit Deinem Gesundheitsberater:in besprichst.<br />
-                                Jede weitere chiropraktische Behandlung außerhalb unserer Behandlungspakete (diese sind deutlich günstiger) liegt bei 45,-€. <br />
-                                Eine Übersicht unserer aktuellen Behandlungspakete findest Du in
-                                {" "}<a href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf" target="_blank" rel="noreferrer">unserer Preisliste.</a>
+                                2. Die Gesamtkosten für deine Erstaufnahme in unserer Praxis belaufen sich auf 144,-€. Die Kosten setzen sich wie folgt zusammmen:
+                                <br/>
+                                <br/>• Erstanalyse inkl. seperatem Auswertungsgespräch: 99,– Euro
+                                <br/>• Chiropraktische Einzelbehandlung: 45,– Euro
+                                <br/>
+                                <br/>Jede weitere chiropraktische Behandlung liegt bei 99,– Euro.
+
+                                <br/>Eine Übersicht unserer aktuellen Behandlungspakete findest Du in {" "}<a href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf" target="_blank" rel="noreferrer">unserer Preisliste.</a>
                             </p>
                         </>}
 
