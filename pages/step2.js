@@ -40,7 +40,7 @@ const Step2 = () => {
                                 <br/>• Erstanalyse inkl. seperatem Auswertungsgespräch: 99,– Euro
                                 <br/>• Chiropraktische Einzelbehandlung: 45,– Euro
                                 <br/>
-                                <br/>Jede weitere chiropraktische Behandlung liegt bei 99,– Euro.
+                                <br/>Jede weitere chiropraktische Behandlung liegt bei 45,– Euro.
 
                                 <br/>Eine Übersicht unserer aktuellen Behandlungspakete findest Du in {" "}<a href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf" target="_blank" rel="noreferrer">unserer Preisliste.</a>
                             </p>
