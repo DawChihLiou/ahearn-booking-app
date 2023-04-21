@@ -30,16 +30,15 @@ const Step2 = () => {
                 <>
                   <p>
                     1. Wir sind eine Privatpraxis. Somit werden die Kosten von
-                    gesetzlichen Krankenkassen in der Regel nicht übernommen.
-                    Private Krankenkassen übernehmen hingegen in der Regel die
-                    Kosten der Behandlung, indem Rahmen, indem
-                    Heilpraktiker-Leistungen im Versicherungsschutz abgedeckt
-                    sind.
+                    den gesetzlichen Krankenkassen in der Regel nicht
+                    übernommen. Private Krankenkassen übernehmen hingegen in der
+                    Regel die Kosten der Behandlung im Rahmen des vertraglich
+                    vereinbarten Versicherungsschutzes für
+                    Heilpraktiker-Leistungen.
                   </p>
                   <p>
                     2. Die Gesamtkosten für die Erstaufnahme in unserer Praxis
-                    belaufen sich auf 144,-€. Diese setzen sich wie folgt
-                    zusammmen:
+                    betragen 144,-€. Diese setzen sich wie folgt zusammmen:
                     <br />
                     <br />• Erstanalyse inkl. separatem Auswertungsgespräch:
                     99,– Euro
@@ -65,10 +64,11 @@ const Step2 = () => {
                 <>
                   <p>
                     1. Wir sind eine Privatpraxis. Somit werden die Kosten von
-                    gesetzlichen Krankenkassen in der Regel nicht übernommen.
-                    Private Krankenkassen übernehmen hingegen im Allgemeinen die
-                    Kosten der Behandlung, wenn der Heilpraktiker mit zu den
-                    Versicherungsleistungen gehört.
+                    den gesetzlichen Krankenkassen in der Regel nicht
+                    übernommen. Private Krankenkassen übernehmen hingegen in der
+                    Regel die Kosten der Behandlung im Rahmen des vertraglich
+                    vereinbarten Versicherungsschutzes für
+                    Heilpraktiker-Leistungen.
                   </p>
                   <p>
                     2. Die Gesamtkosten belaufen sich auf 100,-€ für die

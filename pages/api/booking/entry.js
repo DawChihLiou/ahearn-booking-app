@@ -230,6 +230,13 @@ export default async function handler(req, res) {
               Gerne möchten wir Dir zur Information folgendes Video vor Deinem
               gebuchten Termin anzusehen:
               https://www.youtube.com/watch?v=but0YUKMAuY
+              <a href="https://www.youtube.com/watch?v=but0YUKMAuY">
+                <Image
+                  src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/Bildschirm%C2%ADfoto%202023-04-21%20um%2010.24.20.png"
+                  width="450"
+                  alt="Logo"
+                />
+              </a>
               <br />
               <br />
               Bitte beachte, dass Termine die nicht fristgerecht mindestens 24
@@ -287,6 +294,13 @@ export default async function handler(req, res) {
               Gerne möchten wir Dir zur Information folgendes Video vor Deinem
               gebuchten Termin anzusehen:
               https://www.youtube.com/watch?v=but0YUKMAuY
+              <a href="https://www.youtube.com/watch?v=but0YUKMAuY">
+                <Image
+                  src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/Bildschirm%C2%ADfoto%202023-04-21%20um%2010.24.20.png"
+                  width="450"
+                  alt="Logo"
+                />
+              </a>
               <br />
               <br />
               Bitte beachte, dass Termine die nicht fristgerecht mindestens 24
