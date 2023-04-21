@@ -230,13 +230,13 @@ export default async function handler(req, res) {
               Gerne möchten wir Dir zur Information folgendes Video vor Deinem
               gebuchten Termin anzusehen:
               https://www.youtube.com/watch?v=but0YUKMAuY
-              <a href="https://www.youtube.com/watch?v=but0YUKMAuY">
+              <A href="https://www.youtube.com/watch?v=but0YUKMAuY">
                 <Image
                   src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/Bildschirm%C2%ADfoto%202023-04-21%20um%2010.24.20.png"
                   width="450"
                   alt="Logo"
                 />
-              </a>
+              </A>
               <br />
               <br />
               Bitte beachte, dass Termine die nicht fristgerecht mindestens 24
@@ -257,6 +257,18 @@ export default async function handler(req, res) {
             <A href="https://www.ahearn-chiropractic.de/sites/default/files/fragebogen.pdf">
               Fragebogen herunterladen
             </A>
+          </Item>
+          <Item align="left" fontSize="14">
+            <br />
+            <br />
+            <Image
+              src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/construction-area-150275_640.png"
+              width="200"
+              alt="Logo"
+            />
+            Wichtig: Bitte beachte, dassaktuell auf der Alexanderstr. eine
+            Baustelle ist und unsere Parkplätze im Innenhof nur über die
+            Einfahrt über Berliner Allee/Alexanderstraße zu erreichen sind.
           </Item>
         </>
       )}
@@ -314,6 +326,18 @@ export default async function handler(req, res) {
               </Span>{" "}
               Team.
             </Span>
+          </Item>
+          <Item align="left" fontSize="14">
+            <br />
+            <br />
+            <Image
+              src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/construction-area-150275_640.png"
+              width="200"
+              alt="Logo"
+            />
+            Wichtig: Bitte beachte, dassaktuell auf der Alexanderstr. eine
+            Baustelle ist und unsere Parkplätze im Innenhof nur über die
+            Einfahrt über Berliner Allee/Alexanderstraße zu erreichen sind.
           </Item>
         </>
       )}
