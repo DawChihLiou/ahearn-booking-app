@@ -335,9 +335,13 @@ export default async function handler(req, res) {
               width="200"
               alt="Logo"
             />
-            Wichtig: Bitte beachte, dassaktuell auf der Alexanderstr. eine
+            Wichtig:
+            <br />
+            <br /> Bitte beachte, dass aktuell auf der Alexanderstr. eine
             Baustelle ist und unsere Parkplätze im Innenhof nur über die
             Einfahrt über Berliner Allee/Alexanderstraße zu erreichen sind.
+            <br />
+            <br />
           </Item>
         </>
       )}
