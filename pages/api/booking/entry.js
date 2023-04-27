@@ -227,9 +227,9 @@ export default async function handler(req, res) {
               Vorbefunde und Diagnosen.
               <br />
               <br />
-              Gerne möchten wir Dir zur Information folgendes Video vor Deinem
-              gebuchten Termin anzusehen:
-              https://www.youtube.com/watch?v=but0YUKMAuY
+              Wir bitten dich, folgendes Video vor Deinem gebuchten Termin zur
+              Information anzusehen:
+              <br /> https://www.youtube.com/watch?v=but0YUKMAuY
               <A href="https://www.youtube.com/watch?v=but0YUKMAuY">
                 <Image
                   src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/Bildschirm%C2%ADfoto%202023-04-21%20um%2010.24.20.png"
@@ -239,9 +239,9 @@ export default async function handler(req, res) {
               </A>
               <br />
               <br />
-              Bitte beachte, dass Termine die nicht fristgerecht mindestens 24
-              Stunden vor Terminbeginn abgesagt wurden, in Höhe von 80€ in
-              Rechnung gestellt werden.
+              Bitte beachte, dass Dein Erst-Termin mit 80,-€ in Rechnung
+              gestellt wird, sollte dieser nicht fristgerecht mindestens 24
+              Stunden vor Terminbeginn abgesagt worden sein.
               <br />
               <br />
               Viele Grüße, Dein{" "}
@@ -266,9 +266,9 @@ export default async function handler(req, res) {
               width="200"
               alt="Logo"
             />
-            Wichtig: Bitte beachte, dassaktuell auf der Alexanderstr. eine
+            WICHTIG: Bitte beachte, dass aktuell auf der Alexanderstraße eine
             Baustelle ist und unsere Parkplätze im Innenhof nur über die
-            Einfahrt über Berliner Allee/Alexanderstraße zu erreichen sind.
+            Einfahrt über Berliner Allee/ Alexanderstraße zu erreichen sind.
           </Item>
         </>
       )}
@@ -303,9 +303,8 @@ export default async function handler(req, res) {
               Vorbefunde und Diagnosen.
               <br />
               <br />
-              Gerne möchten wir Dir zur Information folgendes Video vor Deinem
-              gebuchten Termin anzusehen:
-              https://www.youtube.com/watch?v=but0YUKMAuY
+              Wir bitten dich, folgendes Video vor Deinem gebuchten Termin zur
+              Information anzusehen: https://www.youtube.com/watch?v=but0YUKMAuY
               <a href="https://www.youtube.com/watch?v=but0YUKMAuY">
                 <Image
                   src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/Bildschirm%C2%ADfoto%202023-04-21%20um%2010.24.20.png"
@@ -315,9 +314,9 @@ export default async function handler(req, res) {
               </a>
               <br />
               <br />
-              Bitte beachte, dass Termine die nicht fristgerecht mindestens 24
-              Stunden vor Terminbeginn abgesagt wurden, in Höhe von 80€ in
-              Rechnung gestellt werden.
+              Bitte beachte, dass Dein Erst-Termin mit 80,-€ in Rechnung
+              gestellt wird, sollte dieser nicht fristgerecht mindestens 24
+              Stunden vor Terminbeginn abgesagt worden sein.
               <br />
               <br />
               Viele Grüße, Dein{" "}
@@ -326,22 +325,6 @@ export default async function handler(req, res) {
               </Span>{" "}
               Team.
             </Span>
-          </Item>
-          <Item align="left" fontSize="14">
-            <br />
-            <br />
-            <Image
-              src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/construction-area-150275_640.png"
-              width="200"
-              alt="Logo"
-            />
-            Wichtig:
-            <br />
-            <br /> Bitte beachte, dass aktuell auf der Alexanderstr. eine
-            Baustelle ist und unsere Parkplätze im Innenhof nur über die
-            Einfahrt über Berliner Allee/Alexanderstraße zu erreichen sind.
-            <br />
-            <br />
           </Item>
         </>
       )}
