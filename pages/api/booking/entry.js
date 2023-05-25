@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     employee_id,
     time,
     person: { gender, vorname, nachname, dob },
-    contact: { tel, mail },
+    contact: { tel, mail, strasse, hausnummer, plz, ort },
     eType,
   } = body;
   console.log(eType);
@@ -168,6 +168,17 @@ export default async function handler(req, res) {
         category: "",
         number: tel,
         sms: true,
+      },
+    ],
+    addresses: [
+      {
+        street: strasse,
+        plz: plz,
+        city: ort,
+        number: hausnummer,
+        country: "DE",
+        category: "Festnetz",
+        co: "",
       },
     ],
   });
