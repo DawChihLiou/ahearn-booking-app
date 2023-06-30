@@ -112,11 +112,13 @@ const ErwachsenerText = () => {
         <br />
         Wir bieten auch günstigere Behandlungspakete an.
         <br />
-        Bist du Student oder Azubi?
+        <br />
+        <strong>Bist du Schüler, Student oder Azubi?</strong>
         <br />
         (Bitte Nachweis hierüber mit zur ersten Behandlung mitbringen.)?
         <br />
         Dann kostet eine chiropraktische Behandlung 35,-€
+        <br />
         <br />
         Wir bieten auch ein günstigeres Behandlungspaket an.
         <br />

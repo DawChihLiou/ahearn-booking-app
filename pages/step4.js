@@ -81,20 +81,25 @@ const Step4 = () => {
   const kind = appointment?.person?.age < 12 && appointment?.person?.age > 0;
   const baby = appointment?.person?.age <= 0;
 
-  if (jugendlich && !erwachsen) {
-    schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
-    in Höhe von 50€ in Rechnung gestellt werden.`;
-  }
+  useEffect(() => {
+    if (!appointment?.person) {
+      router.push("/step1");
+    }
+    if (jugendlich && !erwachsen) {
+      schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
+      in Höhe von 50€ in Rechnung gestellt werden.`;
+    }
 
-  if (kind) {
-    schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden,
-    in Höhe von 25€ in Rechnung gestellt werden.`;
-  }
+    if (kind) {
+      schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden,
+      in Höhe von 25€ in Rechnung gestellt werden.`;
+    }
 
-  if (baby) {
-    schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden,
-    in Höhe von 20€ in Rechnung gestellt werden.`;
-  }
+    if (baby) {
+      schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden,
+      in Höhe von 20€ in Rechnung gestellt werden.`;
+    }
+  }, []);
 
   const book = async ({ formData }) => {
     console.log(formData);
