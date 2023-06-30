@@ -9,6 +9,17 @@ const Step2 = () => {
   const [appointment, setAppointment] = useContext(AppointmentContext);
   const router = useRouter();
 
+  useEffect(() => {
+    if (!appointment?.person) {
+      router.push("/step1");
+    }
+  }, []);
+
+  const erwachsen = appointment?.person?.age >= 16;
+  const jugendlich = appointment?.person?.age >= 12;
+  const kind = appointment?.person?.age < 12 && appointment?.person?.age > 0;
+  const baby = appointment?.person?.age <= 0;
+
   const confirm = ({ formData }) => {
     console.log(formData);
     setAppointment({ ...appointment, confirm: formData });
@@ -28,35 +39,10 @@ const Step2 = () => {
               </p>
               {appointment.dest == "dus" && (
                 <>
-                  <p>
-                    1. Wir sind eine Privatpraxis. Somit werden die Kosten von
-                    den gesetzlichen Krankenkassen in der Regel nicht
-                    übernommen. Private Krankenkassen übernehmen hingegen in der
-                    Regel die Kosten der Behandlung im Rahmen des vertraglich
-                    vereinbarten Versicherungsschutzes für
-                    Heilpraktiker-Leistungen.
-                  </p>
-                  <p>
-                    2. Die Gesamtkosten für die Erstaufnahme in unserer Praxis
-                    betragen 144,-€. Diese setzen sich wie folgt zusammmen:
-                    <br />
-                    <br />• Erstanalyse inkl. separatem Auswertungsgespräch:
-                    99,– Euro
-                    <br />• Chiropraktische Einzelbehandlung: 45,– Euro
-                    <br />
-                    <br />
-                    Jede weitere chiropraktische Behandlung beträgt 45,– Euro.
-                    <br />
-                    Eine Übersicht unserer aktuellen Behandlungspakete findest
-                    Du in{" "}
-                    <a
-                      href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      unserer Preisliste.
-                    </a>
-                  </p>
+                  {erwachsen && <ErwachsenerText />}
+                  {jugendlich && !erwachsen && <JugendlicherText />}
+                  {kind && <KindText />}
+                  {baby && <BabyText />}
                 </>
               )}
 
@@ -99,6 +85,160 @@ const Step2 = () => {
           </Card>
         </Col>
       </Row>
+    </>
+  );
+};
+
+const ErwachsenerText = () => {
+  return (
+    <>
+      <p>Du buchst einen Termin für einen Erwachsenen.</p>
+      <p>
+        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
+        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
+        des vertraglich vereinbarten Versicherungsschutzes für
+        Heilpraktiker-Leistungen.
+      </p>
+      <p>
+        2. Die Gesamtkosten für die Erstaufnahme eines Erwachsenen in unserer
+        Praxis betragen 144,-€. Diese setzen sich wie folgt zusammen:
+        <br />
+        <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 99, – €
+        <br />• Chiropraktische Einzelbehandlung: 45, – €
+        <br />
+        <br />
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 45, – €.
+        <br />
+        Wir bieten auch günstigere Behandlungspakete an.
+        <br />
+        Bist du Student oder Azubi?
+        <br />
+        (Bitte Nachweis hierüber mit zur ersten Behandlung mitbringen.)?
+        <br />
+        Dann kostet eine chiropraktische Behandlung 35,-€
+        <br />
+        Wir bieten auch ein günstigeres Behandlungspaket an.
+        <br />
+        Eine Übersicht unserer aktuellen Behandlungspakete findest Du in{" "}
+        <a
+          href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          unserer Preisliste.
+        </a>
+      </p>
+    </>
+  );
+};
+
+const JugendlicherText = () => {
+  return (
+    <>
+      <p>Du buchst einen Termin für einen Jungendlichen.</p>
+      <p>
+        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
+        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
+        des vertraglich vereinbarten Versicherungsschutzes für
+        Heilpraktiker-Leistungen.
+      </p>
+      <p>
+        2. Die Gesamtkosten für die Erstaufnahme eines Teenagers im{" "}
+        <strong>Alter von 12-16 Jahren</strong>, eines Schülers/Studenten
+        /Auszubildenden in unserer Praxis betragen:
+        <br />
+        <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 75, – €
+        <br />• Chiropraktische Einzelbehandlung: 30, – €
+        <br />
+        <br />
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 30, – €.
+        <br />
+        Wir bieten auch ein günstigeres Behandlungspaket an.
+        <br />
+        Eine Übersicht unserer aktuellen Behandlungspakete findest Du in{" "}
+        <a
+          href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          unserer Preisliste.
+        </a>
+      </p>
+    </>
+  );
+};
+
+const KindText = () => {
+  return (
+    <>
+      <p>Du buchst einen Termin für ein Kind.</p>
+      <p>
+        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
+        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
+        des vertraglich vereinbarten Versicherungsschutzes für
+        Heilpraktiker-Leistungen.
+      </p>
+      <p>
+        2. Die Gesamtkosten für die Erstaufnahme eines Kindes im Alter von{" "}
+        <strong>1-11</strong>
+        Jahren in unserer Praxis betragen:
+        <br />
+        <br />• Erstgespräch mit Anamnese: 0, – €
+        <br />• Chiropraktische Einzelbehandlung: 25, – €
+        <br />
+        <br />
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 25, – €.
+        <br />
+        Wir bieten auch ein günstigeres Behandlungspaket an.
+        <br />
+        Eine Übersicht unserer aktuellen Behandlungspakete findest Du in{" "}
+        <a
+          href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          unserer Preisliste.
+        </a>
+      </p>
+    </>
+  );
+};
+
+const BabyText = () => {
+  return (
+    <>
+      <p>Du buchst einen Termin für ein Baby.</p>
+      <p>
+        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
+        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
+        des vertraglich vereinbarten Versicherungsschutzes für
+        Heilpraktiker-Leistungen.
+      </p>
+      <p>
+        2. Die Gesamtkosten für die Erstaufnahme eines Babys bis zum 1.
+        Lebensjahr in unserer Praxis betragen:
+        <br />
+        <br />• Erstgespräch mit Anamnese: 0, – €
+        <br />• Chiropraktische Einzelbehandlung: 20, – €
+        <br />
+        <br />
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 20, – €.
+        <br />
+        Wir bieten auch ein günstigeres Behandlungspaket an.
+        <br />
+        Eine Übersicht unserer aktuellen Behandlungspakete findest Du in{" "}
+        <a
+          href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          unserer Preisliste.
+        </a>
+      </p>
     </>
   );
 };

@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   const {
     employee_id,
     time,
-    person: { gender, vorname, nachname, dob },
+    person: { gender, vorname, nachname, dob, age },
     contact: { tel, mail, strasse, hausnummer, plz, ort },
     eType,
   } = body;
@@ -142,6 +142,29 @@ export default async function handler(req, res) {
   await db("patients").insert(insertPatient);
   const patient = await db("patients").where("id", insertPatient.id).first();
 
+  const erwachsen = age >= 16;
+  const jugendlich = age >= 12;
+  const kind = age < 12 && age > 0;
+  const baby = age <= 0;
+
+  let treatment_type = "New";
+  let duration = 45;
+  if (eType === 30) {
+    treatment_type = "New T2";
+    duration = 40;
+  } else {
+    if (jugendlich && !erwachsen) {
+      treatment_type = "New-Kind";
+      duration = 30;
+    } else if (kind) {
+      treatment_type = "New-Kind";
+      duration = 30;
+    } else if (baby) {
+      treatment_type = "New-Baby";
+      duration = 15;
+    }
+  }
+
   const insertTreatment = {
     modified: moment(new Date()).utc().format("YYYY-MM-DD HH:mm:ss"),
     created: moment(new Date()).utc().format("YYYY-MM-DD HH:mm:ss"),
@@ -149,11 +172,11 @@ export default async function handler(req, res) {
     user_id: patient.id,
     employee_id: employee_id,
     patient_id: patient.id,
-    treatment_type: eType === 30 ? "New T2" : "New",
+    treatment_type: treatment_type,
     treatment_status: "Geblockt",
     time: moment(time).utc().format("YYYY-MM-DD HH:mm"),
     slot: availableSlots[0],
-    duration: eType === 30 ? 40 : 45,
+    duration: duration,
     is_created_by_patient: 1,
     ha: 1,
     comment: "#app",

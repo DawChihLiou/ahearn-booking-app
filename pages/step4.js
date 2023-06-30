@@ -18,9 +18,83 @@ Date.prototype.isDstObserved = function () {
   return this.getTimezoneOffset() < this.stdTimezoneOffset();
 };
 
+const schema = {
+  type: "object",
+  required: [
+    "strasse",
+    "hausnummer",
+    "plz",
+    "ort",
+    "tel",
+    "mail",
+    "confirmAusfall",
+  ],
+  properties: {
+    strasse: {
+      type: "string",
+      title: "Straße",
+      minLength: 2,
+    },
+    hausnummer: {
+      type: "string",
+      title: "Hausnummer",
+      minLength: 1,
+    },
+    plz: {
+      type: "string",
+      title: "PLZ",
+      minLength: 4,
+    },
+    ort: {
+      type: "string",
+      title: "Ort",
+      minLength: 2,
+    },
+    tel: {
+      title: "Telefon",
+      type: "string",
+      default: "+49",
+      format: "tel",
+      description: `Versprochen, wir geben Deine Nummer nicht weiter. Wir werden Dich aber 24 Stunden vor Terminbeginn per SMS erinnern.`,
+      minLength: 5,
+    },
+    mail: {
+      format: "mail",
+      type: "string",
+      title: "E-Mail",
+      description: `Wir werden Dir noch eine Bestätigungs-E-Mail zu kommen lassen. Damit Du an Deinen Termin denkst.`,
+    },
+    confirmAusfall: {
+      title: `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
+            in Höhe von 80€ in Rechnung gestellt werden.`,
+      type: "boolean",
+    },
+  },
+};
+
 const Step4 = () => {
   const [appointment, setAppointment] = useContext(AppointmentContext);
   const router = useRouter();
+
+  const erwachsen = appointment?.person?.age >= 16;
+  const jugendlich = appointment?.person?.age >= 12;
+  const kind = appointment?.person?.age < 12 && appointment?.person?.age > 0;
+  const baby = appointment?.person?.age <= 0;
+
+  if (jugendlich && !erwachsen) {
+    schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
+    in Höhe von 50€ in Rechnung gestellt werden.`;
+  }
+
+  if (kind) {
+    schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden,
+    in Höhe von 25€ in Rechnung gestellt werden.`;
+  }
+
+  if (baby) {
+    schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden,
+    in Höhe von 20€ in Rechnung gestellt werden.`;
+  }
 
   const book = async ({ formData }) => {
     console.log(formData);
@@ -151,60 +225,6 @@ function transformErrors(errors) {
     return error;
   });
 }
-
-const schema = {
-  type: "object",
-  required: [
-    "strasse",
-    "hausnummer",
-    "plz",
-    "ort",
-    "tel",
-    "mail",
-    "confirmAusfall",
-  ],
-  properties: {
-    strasse: {
-      type: "string",
-      title: "Straße",
-      minLength: 2,
-    },
-    hausnummer: {
-      type: "string",
-      title: "Hausnummer",
-      minLength: 1,
-    },
-    plz: {
-      type: "string",
-      title: "PLZ",
-      minLength: 4,
-    },
-    ort: {
-      type: "string",
-      title: "Ort",
-      minLength: 2,
-    },
-    tel: {
-      title: "Telefon",
-      type: "string",
-      default: "+49",
-      format: "tel",
-      description: `Versprochen, wir geben Deine Nummer nicht weiter. Wir werden Dich aber 24 Stunden vor Terminbeginn per SMS erinnern.`,
-      minLength: 5,
-    },
-    mail: {
-      format: "mail",
-      type: "string",
-      title: "E-Mail",
-      description: `Wir werden Dir noch eine Bestätigungs-E-Mail zu kommen lassen. Damit Du an Deinen Termin denkst.`,
-    },
-    confirmAusfall: {
-      title: `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
-            in Höhe von 80€ in Rechnung gestellt werden.`,
-      type: "boolean",
-    },
-  },
-};
 
 const uiSchema = {
   tel: {
