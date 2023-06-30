@@ -146,8 +146,7 @@ const JugendlicherText = () => {
       </p>
       <p>
         2. Die Gesamtkosten für die Erstaufnahme eines Teenagers im{" "}
-        <strong>Alter von 12-16 Jahren</strong>, eines Schülers/Studenten
-        /Auszubildenden in unserer Praxis betragen:
+        <strong>Alter von 12-16 Jahren</strong> in unserer Praxis betragen:
         <br />
         <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 75, – €
         <br />• Chiropraktische Einzelbehandlung: 30, – €
