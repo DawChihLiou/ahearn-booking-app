@@ -117,7 +117,8 @@ const ErwachsenerText = () => {
         <br />
         (Bitte Nachweis hierüber mit zur ersten Behandlung mitbringen.)?
         <br />
-        Dann kostet eine chiropraktische Behandlung 35,-€
+        Dann kostet eine chiropraktische Behandlung{" "}
+        <strong style={{ color: "#ec6735" }}>35,-€</strong>
         <br />
         <br />
         Wir bieten auch ein günstigeres Behandlungspaket an.
@@ -148,7 +149,8 @@ const JugendlicherText = () => {
       </p>
       <p>
         2. Die Gesamtkosten für die Erstaufnahme eines Teenagers im{" "}
-        <strong>Alter von 12-16 Jahren</strong> in unserer Praxis betragen:
+        <strong style={{ color: "#ec6735" }}>Alter von 12-16 Jahren</strong> in
+        unserer Praxis betragen:
         <br />
         <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 75, – €
         <br />• Chiropraktische Einzelbehandlung: 30, – €
@@ -183,11 +185,15 @@ const KindText = () => {
         Heilpraktiker-Leistungen.
       </p>
       <p>
-        2. Die Gesamtkosten für die Erstaufnahme eines Kindes im Alter von{" "}
-        <strong>1-11</strong>
-        Jahren in unserer Praxis betragen:
+        2. Die Gesamtkosten für die Erstaufnahme eines Kindes im{" "}
+        <strong style={{ color: "#ec6735" }}>
+          Alter von <strong>1-11</strong>
+          Jahren{" "}
+        </strong>
+        in unserer Praxis betragen:
         <br />
-        <br />• Erstgespräch mit Anamnese: 0, – €
+        <br />• Erstgespräch mit Anamnese:{" "}
+        <strong style={{ color: "#ec6735" }}>0, – €</strong>
         <br />• Chiropraktische Einzelbehandlung: 25, – €
         <br />
         <br />
@@ -220,10 +226,12 @@ const BabyText = () => {
         Heilpraktiker-Leistungen.
       </p>
       <p>
-        2. Die Gesamtkosten für die Erstaufnahme eines Babys bis zum 1.
-        Lebensjahr in unserer Praxis betragen:
+        2. Die Gesamtkosten für die Erstaufnahme eines Babys{" "}
+        <strong style={{ color: "#ec6735" }}>bis zum 1. Lebensjahr</strong> in
+        unserer Praxis betragen:
         <br />
-        <br />• Erstgespräch mit Anamnese: 0, – €
+        <br />• Erstgespräch mit Anamnese:
+        <strong style={{ color: "#ec6735" }}>0, – €</strong>
         <br />• Chiropraktische Einzelbehandlung: 20, – €
         <br />
         <br />
