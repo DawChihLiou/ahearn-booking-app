@@ -162,7 +162,7 @@ const JugendlicherText = () => {
         <br />
         Eine Übersicht unserer aktuellen Behandlungspakete findest Du in{" "}
         <a
-          href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
+          href="https://www.ahearn-chiropractic.de/sites/default/files/ahearn-chiropractic_Preisliste_KiDS_Stand_Juni2022.pdf"
           target="_blank"
           rel="noreferrer"
         >
@@ -203,7 +203,7 @@ const KindText = () => {
         <br />
         Eine Übersicht unserer aktuellen Behandlungspakete findest Du in{" "}
         <a
-          href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
+          href="https://www.ahearn-chiropractic.de/sites/default/files/ahearn-chiropractic_Preisliste_KiDS_Stand_Juni2022.pdf"
           target="_blank"
           rel="noreferrer"
         >
@@ -241,7 +241,7 @@ const BabyText = () => {
         <br />
         Eine Übersicht unserer aktuellen Behandlungspakete findest Du in{" "}
         <a
-          href="https://www.ahearn-chiropractic.de/sites/default/files/Preisliste_ab_05_2022_210x297mm_Update_P1.pdf"
+          href="https://www.ahearn-chiropractic.de/sites/default/files/ahearn-chiropractic_Preisliste_KiDS_Stand_Juni2022.pdf"
           target="_blank"
           rel="noreferrer"
         >
