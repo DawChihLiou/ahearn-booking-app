@@ -85,6 +85,9 @@ const Step4 = () => {
     if (!appointment?.person) {
       router.push("/step1");
     }
+  }, []);
+
+  useEffect(() => {
     if (jugendlich && !erwachsen) {
       schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
       in Höhe von 50€ in Rechnung gestellt werden.`;
@@ -99,7 +102,7 @@ const Step4 = () => {
       schema.properties.confirmAusfall.title = `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden,
       in Höhe von 20€ in Rechnung gestellt werden.`;
     }
-  }, []);
+  });
 
   const book = async ({ formData }) => {
     console.log(formData);
