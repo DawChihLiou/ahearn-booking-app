@@ -431,9 +431,9 @@ export default async function handler(req, res) {
           .format("DD.MM.YYYY")} um ${moment(time).utc().format("HH:mm")} Uhr`,
       },
     },
-    Source: "technik@ahearn-chiropractic.de" /* required */,
+    Source: "info@ahearn-chiropractic.de" /* required */,
     ReplyToAddresses: [
-      "technik@ahearn-chiropractic.de",
+      "info@ahearn-chiropractic.de",
       /* more items */
     ],
   };
