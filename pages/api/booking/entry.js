@@ -292,18 +292,6 @@ export default async function handler(req, res) {
               Fragebogen herunterladen
             </A>
           </Item>
-          <Item align="left" fontSize="14">
-            <br />
-            <br />
-            <Image
-              src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/construction-area-150275_640.png"
-              width="200"
-              alt="Logo"
-            />
-            WICHTIG: Bitte beachte, dass aktuell auf der Alexanderstraße eine
-            Baustelle ist und unsere Parkplätze im Innenhof nur über die
-            Einfahrt über Berliner Allee/ Alexanderstraße zu erreichen sind.
-          </Item>
         </>
       )}
 
