@@ -16,7 +16,10 @@ export default async function handler(req, res) {
       break;
   }
 
-  const base_url = (process.env.NODE_ENV === "development") ? "https://localhost:3000" : "https://ahearn-system.de"
+  const base_url =
+    process.env.NODE_ENV === "development"
+      ? "https://ahearn-system.de"
+      : "https://ahearn-system.de";
 
   const agent = new https.Agent({
     rejectUnauthorized: false,
