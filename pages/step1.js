@@ -120,7 +120,7 @@ export default function Step1(props) {
 
 const schema = {
   type: "object",
-  required: ["vorname", "gender", "nachname"],
+  required: ["vorname", "gender", "nachname", "dob"],
   properties: {
     gender: {
       title: "Anrede",
