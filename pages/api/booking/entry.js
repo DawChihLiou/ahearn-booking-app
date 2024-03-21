@@ -15,6 +15,7 @@ import { Email, Item, Span, A, Image, renderEmail } from "react-html-email";
 export default async function handler(req, res) {
   const { body } = req;
   console.log(body);
+
   const {
     employee_id,
     time,
@@ -23,6 +24,19 @@ export default async function handler(req, res) {
     eType,
   } = body;
   console.log(eType);
+
+  const dates = [moment(time).utc().format("YYYY-MM-DD HH:mm")];
+  dates.push(moment(time).add(15, "minutes").utc().format("YYYY-MM-DD HH:mm"));
+  dates.push(moment(time).add(30, "minutes").utc().format("YYYY-MM-DD HH:mm"));
+
+  const datesBefore = [
+    moment(time).subtract(15, "minutes").utc().format("YYYY-MM-DD HH:mm"),
+    moment(time).subtract(30, "minutes").utc().format("YYYY-MM-DD HH:mm"),
+    moment(time).subtract(45, "minutes").utc().format("YYYY-MM-DD HH:mm"),
+  ];
+
+  console.log(dates, datesBefore);
+
   // if (!res.socket.server.io) {
   const io = new Server(res.socket.server);
 
@@ -85,10 +99,6 @@ export default async function handler(req, res) {
     return;
   }
 
-  const dates = [moment(time).utc().format("YYYY-MM-DD HH:mm")];
-  dates.push(moment(time).add(15, "minutes").utc().format("YYYY-MM-DD HH:mm"));
-  dates.push(moment(time).add(30, "minutes").utc().format("YYYY-MM-DD HH:mm"));
-
   const closed = [
     closedDaysCalculation.isClosed(closedEntries, moment(time), employee),
     closedDaysCalculation.isClosed(
@@ -123,7 +133,39 @@ export default async function handler(req, res) {
     .whereIn("time", dates)
     .first();
 
-  if (alreadyExists.CND > 0) {
+  const alreadyExistsPast15 = await db("treatments")
+    .count("id as CNT")
+    .whereIn("treatment_status", ["Ok", "Geblockt"])
+    .andWhere("employee_id", employee_id)
+    .andWhere("slot", availableSlots[0])
+    .andWhere("duration", ">", 15)
+    .whereIn("time", [datesBefore[0]])
+    .first();
+
+  const alreadyExistsPast30 = await db("treatments")
+    .count("id as CNT")
+    .whereIn("treatment_status", ["Ok", "Geblockt"])
+    .andWhere("employee_id", employee_id)
+    .andWhere("slot", availableSlots[0])
+    .andWhere("duration", ">", 30)
+    .whereIn("time", [datesBefore[1]])
+    .first();
+
+  const alreadyExistsPast45 = await db("treatments")
+    .count("id as CNT")
+    .whereIn("treatment_status", ["Ok", "Geblockt"])
+    .andWhere("employee_id", employee_id)
+    .andWhere("slot", availableSlots[0])
+    .andWhere("duration", ">", 45) // 45+ min treatment
+    .whereIn("time", [datesBefore[2]])
+    .first();
+
+  if (
+    alreadyExists.CND > 0 ||
+    alreadyExistsPast15.CND > 0 ||
+    alreadyExistsPast30.CND > 0 ||
+    alreadyExistsPast45.CND > 0
+  ) {
     console.log("Dieser Termin wurde in diesem Augenblick bereits vergeben.");
     res
       .status(400)
