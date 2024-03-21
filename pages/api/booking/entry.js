@@ -161,10 +161,10 @@ export default async function handler(req, res) {
     .first();
 
   if (
-    alreadyExists.CND > 0 ||
-    alreadyExistsPast15.CND > 0 ||
-    alreadyExistsPast30.CND > 0 ||
-    alreadyExistsPast45.CND > 0
+    alreadyExists.CNT > 0 ||
+    alreadyExistsPast15.CNT > 0 ||
+    alreadyExistsPast30.CNT > 0 ||
+    alreadyExistsPast45.CNT > 0
   ) {
     console.log("Dieser Termin wurde in diesem Augenblick bereits vergeben.");
     res
