@@ -166,7 +166,12 @@ const ShowDates = ({ dates, allSlots }) => {
   const [appointment, setAppointment] = useContext(AppointmentContext);
   console.log("Type", appointment.eType);
   const cols = dates.map((d) => {
-    const slots = allSlots.find((s) => isSameDay(new Date(s.times[0].time), d));
+    const slots = allSlots.find((s) => {
+      if (!s.times) return false;
+      if (s.times.length === 0) return false;
+      if (!s.times[0]?.time) return false;
+      return isSameDay(new Date(s.times[0]?.time), d);
+    });
     return (
       <div key={d.getTime()} style={{ width: `${100 / dates.length}%` }}>
         <strong>{format(d, "eee dd.MM", { locale: de })}</strong>
