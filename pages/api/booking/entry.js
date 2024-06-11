@@ -52,9 +52,9 @@ export default async function handler(req, res) {
 
   const db = knex(process.env.DATABASE_URL);
   console.log(process.env.MONGO_URL);
-  const mongo = new MongoClient({ url: process.env.MONGO_URL });
-  const connection = await mongo.connect(process.env.MONGO_URL);
-
+  const mongo = new MongoClient( process.env.MONGO_URL,  { useUnifiedTopology: true } );
+  const _connection = await mongo.connect();
+  const connection = _connection.db("chiroapp");
   const closedEntries = await connection.collection("closed").find().toArray();
 
   const insertPatient = {
