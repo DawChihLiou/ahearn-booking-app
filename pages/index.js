@@ -50,7 +50,7 @@ export default function Home() {
           md={{ size: 6, offset: 0 }}
           xl={{ size: 4, offset: 0 }}
         >
-          <Link href="https://www.ahearn-chiropractic.de/user/login">
+          <Link href="https://my.ahearn-chiropractic.de">
             <Card className="hover" {...attributes}>
               <CardBody>
                 <center>
