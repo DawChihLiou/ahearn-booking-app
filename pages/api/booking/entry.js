@@ -262,7 +262,7 @@ export default async function handler(req, res) {
       <Item align="left">&nbsp;</Item>
       <Item align="center">
         <Image
-          src="https://www.ahearn-chiropractic.de/images/branding-logo.jpg"
+          src="https://booking.ahearn-chiropractic.de/logo.webp"
           width="104"
           height="179"
           alt="Logo"
@@ -305,10 +305,10 @@ export default async function handler(req, res) {
               <br />
               Wir bitten dich, folgendes Video vor Deinem gebuchten Termin zur
               Information anzusehen:
-              <br /> https://www.youtube.com/watch?v=but0YUKMAuY
-              <A href="https://www.youtube.com/watch?v=but0YUKMAuY">
+              <br /> https://youtu.be/but0YUKMAuY
+              <A href="https://youtu.be/but0YUKMAuY">
                 <Image
-                  src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/Bildschirm%C2%ADfoto%202023-04-21%20um%2010.24.20.png"
+                  src="https://booking.ahearn-chiropractic.de/youtube-video.png"
                   width="450"
                   alt="Logo"
                 />
@@ -330,7 +330,7 @@ export default async function handler(req, res) {
           <Item align="left" fontSize="14">
             <br />
             <br />
-            <A href="https://www.ahearn-chiropractic.de/sites/default/files/fragebogen.pdf">
+            <A href="https://ahearn-chiropractic.de/wp-content/uploads/2024/07/AUC-Datenschutz-u-Patienten_Fragebogen_P2.pdf">
               Fragebogen herunterladen
             </A>
           </Item>
@@ -368,10 +368,10 @@ export default async function handler(req, res) {
               <br />
               <br />
               Wir bitten dich, folgendes Video vor Deinem gebuchten Termin zur
-              Information anzusehen: https://www.youtube.com/watch?v=but0YUKMAuY
-              <a href="https://www.youtube.com/watch?v=but0YUKMAuY">
+              Information anzusehen: https://youtu.be/but0YUKMAuY
+              <a href="https://youtu.be/but0YUKMAuY">
                 <Image
-                  src="https://www.ahearn-chiropractic.de/sites/default/files/sites/default/files/mail/Bildschirm%C2%ADfoto%202023-04-21%20um%2010.24.20.png"
+                  src="https://booking.ahearn-chiropractic.de/youtube-video.png"
                   width="450"
                   alt="Logo"
                 />
@@ -422,7 +422,7 @@ export default async function handler(req, res) {
                     Solltest du den Fragebogen nicht ausgedruckt mitbringen können, dann sei bitte 15 Minuten vor den Termin in der Praxis.
 
                     Gerne möchten wir Dir zur Information folgendes Video vor Deinem gebuchten Termin anzusehen:
-                    https://www.youtube.com/watch?v=but0YUKMAuY
+                    https://youtu.be/but0YUKMAuY
 
                     Bitte beachte, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
                     in Höhe von 80€ in Rechnung gestellt werden.
@@ -442,7 +442,7 @@ export default async function handler(req, res) {
 
 
                     Gerne möchten wir Dir zur Information folgendes Video vor Deinem gebuchten Termin anzusehen:
-                    https://www.youtube.com/watch?v=but0YUKMAuY
+                    https://youtu.be/but0YUKMAuY
 
                     Bitte beachte, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
                     in Höhe von 80€ in Rechnung gestellt werden.
