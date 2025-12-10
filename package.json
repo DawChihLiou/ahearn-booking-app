@@ -37,11 +37,8 @@
   "devDependencies": {
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6"
-<<<<<<< HEAD
-=======
   },
   "volta": {
     "node": "12.22.12"
->>>>>>> ffc0aed280a009b496add64fba2ed378e2e855d4
   }
 }
