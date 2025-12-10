@@ -92,23 +92,22 @@ const Step2 = () => {
 const ErwachsenerText = () => {
   return (
     <>
-      <p>Du buchst einen Termin für einen Erwachsenen.</p>
       <p>
-        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
-        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        1. Wir sind eine Privatpraxis. Daher werden die Kosten von den
+        gesetzlichen Krankenkassen in der Regel nicht übernommen. Private
         Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
         des vertraglich vereinbarten Versicherungsschutzes für
         Heilpraktiker-Leistungen.
       </p>
       <p>
         2. Die Gesamtkosten für die Erstaufnahme eines Erwachsenen in unserer
-        Praxis betragen 144,-€. Diese setzen sich wie folgt zusammen:
+        Praxis betragen 147 €. Diese setzen sich wie folgt zusammen:
         <br />
-        <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 99, – €
-        <br />• Chiropraktische Einzelbehandlung: 45, – €
+        <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 99 €
+        <br />• Chiropraktische Einzelbehandlung: 48 €
         <br />
         <br />
-        Jede weitere chiropraktische Behandlung beträgt ebenfalls 45, – €.
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 48 €.
         <br />
         Wir bieten auch günstigere Behandlungspakete an.
         <br />
@@ -118,7 +117,7 @@ const ErwachsenerText = () => {
         (Bitte Nachweis hierüber mit zur ersten Behandlung mitbringen.)?
         <br />
         Dann kostet eine chiropraktische Behandlung{" "}
-        <strong style={{ color: "#ec6735" }}>35,-€</strong>
+        <strong style={{ color: "#ec6735" }}>38 €</strong>
         <br />
         <br />
         Wir bieten auch ein günstigeres Behandlungspaket an.
@@ -141,8 +140,8 @@ const JugendlicherText = () => {
     <>
       <p>Du buchst einen Termin für einen Jungendlichen.</p>
       <p>
-        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
-        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        1. Wir sind eine Privatpraxis. Daher werden die Kosten von den
+        gesetzlichen Krankenkassen in der Regel nicht übernommen. Private
         Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
         des vertraglich vereinbarten Versicherungsschutzes für
         Heilpraktiker-Leistungen.
@@ -150,13 +149,13 @@ const JugendlicherText = () => {
       <p>
         2. Die Gesamtkosten für die Erstaufnahme eines Teenagers im{" "}
         <strong style={{ color: "#ec6735" }}>Alter von 12-16 Jahren</strong> in
-        unserer Praxis betragen 105, - €:
+        unserer Praxis betragen 110 €:
         <br />
-        <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 75, – €
-        <br />• Chiropraktische Einzelbehandlung: 30, – €
+        <br />• Erstanalyse inkl. separatem Auswertungsgespräch: 75 €
+        <br />• Chiropraktische Einzelbehandlung: 35 €
         <br />
         <br />
-        Jede weitere chiropraktische Behandlung beträgt ebenfalls 30, – €.
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 35 €.
         <br />
         Wir bieten auch ein günstigeres Behandlungspaket an.
         <br />
@@ -178,26 +177,23 @@ const KindText = () => {
     <>
       <p>Du buchst einen Termin für ein Kind.</p>
       <p>
-        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
-        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        1. Wir sind eine Privatpraxis. Daher werden die Kosten von den
+        gesetzlichen Krankenkassen in der Regel nicht übernommen. Private
         Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
         des vertraglich vereinbarten Versicherungsschutzes für
         Heilpraktiker-Leistungen.
       </p>
       <p>
         2. Die Gesamtkosten für die Erstaufnahme eines Kindes im{" "}
-        <strong style={{ color: "#ec6735" }}>
-          Alter von <strong>1-11</strong>
-          Jahren{" "}
-        </strong>
+        <strong style={{ color: "#ec6735" }}>Alter von 1-11 Jahren </strong>
         in unserer Praxis betragen:
         <br />
         <br />• Erstgespräch mit Anamnese:{" "}
         <strong style={{ color: "#ec6735" }}>0, – €</strong>
-        <br />• Chiropraktische Einzelbehandlung: 25, – €
+        <br />• Chiropraktische Einzelbehandlung: 30 €
         <br />
         <br />
-        Jede weitere chiropraktische Behandlung beträgt ebenfalls 25, – €.
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 30 €.
         <br />
         Wir bieten auch ein günstigeres Behandlungspaket an.
         <br />
@@ -219,8 +215,8 @@ const BabyText = () => {
     <>
       <p>Du buchst einen Termin für ein Baby.</p>
       <p>
-        1. Wir sind eine Privatpraxis. Somit werden die Kosten von den
-        gesetzlichen Krankenkassen im Allgemeinen nicht übernommen. Private
+        1. Wir sind eine Privatpraxis. Daher werden die Kosten von den
+        gesetzlichen Krankenkassen in der Regel nicht übernommen. Private
         Krankenkassen übernehmen hingegen die Kosten der Behandlung im Rahmen
         des vertraglich vereinbarten Versicherungsschutzes für
         Heilpraktiker-Leistungen.
@@ -230,12 +226,12 @@ const BabyText = () => {
         <strong style={{ color: "#ec6735" }}>bis zum 1. Lebensjahr</strong> in
         unserer Praxis betragen:
         <br />
-        <br />• Erstgespräch mit Anamnese:
+        <br />• Erstgespräch mit Anamnese:{" "}
         <strong style={{ color: "#ec6735" }}>0, – €</strong>
-        <br />• Chiropraktische Einzelbehandlung: 20, – €
+        <br />• Chiropraktische Einzelbehandlung: 25 €
         <br />
         <br />
-        Jede weitere chiropraktische Behandlung beträgt ebenfalls 20, – €.
+        Jede weitere chiropraktische Behandlung beträgt ebenfalls 25 €.
         <br />
         Wir bieten auch ein günstigeres Behandlungspaket an.
         <br />
