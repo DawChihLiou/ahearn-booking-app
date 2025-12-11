@@ -32,9 +32,9 @@ const Step2 = () => {
         <Col>
           <Card>
             <CardBody>
-              <h3>Das solltest Du wissen!</h3>
+              <h3>Das solltest du wissen!</h3>
               <p>
-                Bevor Du zu Deiner Terminauswahl kommst, solltest Du folgendes
+                Bevor du zu Deiner Terminauswahl kommst, solltest Du folgendes
                 wissen:
               </p>
               {appointment.dest == "dus" && (
