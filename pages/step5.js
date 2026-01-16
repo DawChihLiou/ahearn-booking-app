@@ -115,7 +115,7 @@ const Step5 = ({}) => {
                   {appointment.dest != "erkrath" && (
                     <Button
                       color="primary"
-                      href="https://ahearn-chiropractic.de/wp-content/uploads/2024/07/AUC-Datenschutz-u-Patienten_Fragebogen_P2.pdf"
+                      href="https://ahearn-chiropractic.de/wp-content/uploads/2025/12/AUC-Datenschutz-u-Patienten_Fragebogen_P2_1225.pdf"
                     >
                       <FiDownload /> Download Fragebogen
                     </Button>
