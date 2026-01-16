@@ -5,7 +5,6 @@ import { parseISO, addHours } from "date-fns";
 import { useRouter } from "next/router";
 import { Row, Col, Button, Card, CardBody } from "reactstrap";
 import Form from "@rjsf/bootstrap-4";
-import ICalendarLink from "react-icalendar-link";
 import axios from "axios";
 
 Date.prototype.stdTimezoneOffset = function () {
@@ -60,6 +59,7 @@ const schema = {
       title: `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
             in Höhe von 40€ in Rechnung gestellt werden.`,
       type: "boolean",
+      enum: [true],
     },
   },
 };
@@ -233,6 +233,9 @@ function transformErrors(errors) {
     }
     if (error.name === "type") {
       error.message = `Dieser Wert ist nicht zulässig.`;
+    }
+    if (error.name === "enum" && error.property?.includes("confirmAusfall")) {
+      error.message = `Dieses Feld muss ausgefüllt werden.`;
     }
     return error;
   });
