@@ -314,7 +314,7 @@ export default async function handler(req, res) {
               </A>
               <br />
               <br />
-              Bitte beachte, dass Dein Erst-Termin mit 80,-€ in Rechnung
+              Bitte beachte, dass Dein Erst-Termin mit 40,-€ in Rechnung
               gestellt wird, sollte dieser nicht fristgerecht mindestens 24
               Stunden vor Terminbeginn abgesagt worden sein.
               <br />
@@ -377,7 +377,7 @@ export default async function handler(req, res) {
               </a>
               <br />
               <br />
-              Bitte beachte, dass Dein Erst-Termin mit 80,-€ in Rechnung
+              Bitte beachte, dass Dein Erst-Termin mit 40,-€ in Rechnung
               gestellt wird, sollte dieser nicht fristgerecht mindestens 24
               Stunden vor Terminbeginn abgesagt worden sein.
               <br />
