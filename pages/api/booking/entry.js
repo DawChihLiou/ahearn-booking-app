@@ -52,7 +52,9 @@ export default async function handler(req, res) {
 
   const db = knex(process.env.DATABASE_URL);
   console.log(process.env.MONGO_URL);
-  const mongo = new MongoClient( process.env.MONGO_URL,  { useUnifiedTopology: true } );
+  const mongo = new MongoClient(process.env.MONGO_URL, {
+    useUnifiedTopology: true,
+  });
   const _connection = await mongo.connect();
   const connection = _connection.db("chiroapp");
   const closedEntries = await connection.collection("closed").find().toArray();
@@ -252,9 +254,6 @@ export default async function handler(req, res) {
     .where("id", insertTreatment.id)
     .first();
 
-  // console.log(treatment, employee_id, time, gender, vorname, nachname, tel, mail)
-
-  console.log(treatment);
   io.sockets.emit("addTreatment", { treatment: treatment, patient: patient });
 
   const emailHTML = renderEmail(
@@ -425,7 +424,7 @@ export default async function handler(req, res) {
                     https://youtu.be/but0YUKMAuY
 
                     Bitte beachte, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
-                    in Höhe von 80€ in Rechnung gestellt werden.
+                    in Höhe von 40€ in Rechnung gestellt werden.
 
                     Viele Grüße, Dein Ahearn Chiropractic Team.
                     `,
@@ -445,7 +444,7 @@ export default async function handler(req, res) {
                     https://youtu.be/but0YUKMAuY
 
                     Bitte beachte, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
-                    in Höhe von 80€ in Rechnung gestellt werden.
+                    in Höhe von 40€ in Rechnung gestellt werden.
 
 
                     Viele Grüße, Dein Ahearn Chiropractic Team.

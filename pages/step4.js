@@ -20,15 +20,7 @@ Date.prototype.isDstObserved = function () {
 
 const schema = {
   type: "object",
-  required: [
-    "strasse",
-    "hausnummer",
-    "plz",
-    "ort",
-    "tel",
-    "mail",
-    "confirmAusfall",
-  ],
+  required: ["strasse", "hausnummer", "plz", "ort", "tel", "mail"],
   properties: {
     strasse: {
       type: "string",
@@ -66,7 +58,7 @@ const schema = {
     },
     confirmAusfall: {
       title: `Hiermit erkläre ich mich einverstanden, dass Termine die nicht fristgerecht mindestens 24 Stunden vor Terminbeginn abgesagt wurden, 
-            in Höhe von 80€ in Rechnung gestellt werden.`,
+            in Höhe von 40€ in Rechnung gestellt werden.`,
       type: "boolean",
     },
   },
@@ -238,9 +230,6 @@ function transformErrors(errors) {
     }
     if (error.name === "required") {
       error.message = `Dieses Feld muss ausgefüllt werden.`;
-      if (error.property === ".confirmAusfall") {
-        error.message = `Bitte bestätigen Sie, dass Sie zur Kenntniss genommen haben, dass eine Ausfallgebühr in Rechnung gestellt wird, wenn der Termin nicht fristgerecht abgesagt wurde.`;
-      }
     }
     if (error.name === "type") {
       error.message = `Dieser Wert ist nicht zulässig.`;

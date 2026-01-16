@@ -164,7 +164,6 @@ const ListFreeSlots = ({ slots, type = 20 }) => {
 
 const ShowDates = ({ dates, allSlots }) => {
   const [appointment, setAppointment] = useContext(AppointmentContext);
-  console.log("Type", appointment.eType);
   const cols = dates.map((d) => {
     const slots = allSlots.find((s) => {
       if (!s.times) return false;
